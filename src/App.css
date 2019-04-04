@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+html body {
+    padding: 0 1em 1em;
+    background-color: #f2f2f2;
+    color: darkred;
+    font-size: initial;
+    font-family: 'Courgette', cursive;
+}
+
+main {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background: darkred;
+    color: #f2f2f2;
+
+    font-size: 1.5rem;
+    box-shadow: 0 9px 10px -2px rgba(0, 0, 0, .2);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background: darkred;
+    color: #f2f2f2;
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+    padding: 0 .5em;
+}
+
+@media only screen and (min-width: 980px ) {
+    footer > div {
+        padding: 0 2em;
+    }
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 1rem;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+nav > ul > li.brand {
+    text-transform: uppercase;
+}
+
+table {
+    width: 100%;
+}
+
+ul > li {
+    list-style-position: inside;
+}
+
+tr:nth-child(even) {
+    background-color: #e2e2e2;
+}
+
+div.tour-link {
+    position: fixed;
+    overflow: hidden;
+    z-index: 4;
+    top: 6em;
+    right: -4.2em;
+    text-align: center;
+    transform: rotate(45deg);
+    background-color: darkolivegreen;
+}
+
+.tour-link > a {
+    display: inline-block;
+    margin: .5rem 5rem;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: larger;
+}
