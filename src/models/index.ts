@@ -4,7 +4,7 @@ export interface IPlayerResults {
 
 export interface IPlayerResult {
     absentMember: number,
-    absentGuest: number
+    absentGuest: number,
     bells: number,
     bellFee: number,
     deposit: number,

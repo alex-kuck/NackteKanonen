@@ -36,16 +36,8 @@ export const PlayerContainer: React.FC = () => {
     const [state, dispatch] = useReducer(reducer, {expanded: [], last: null} as IExpandState);
     const {expanded, last} = state;
 
-    const showing = (playerKey: string): boolean => expanded.includes(playerKey);
+    const isExpanded = (playerKey: string): boolean => expanded.includes(playerKey);
     const togglePlayer = (playerKey: string) => dispatch({type: 'TOGGLE', payload: playerKey});
-
-    const totalInformation = Object.values(playerResults).reduce((acc, result) => ({
-        deposit: acc.deposit + result.deposit,
-        toPay: acc.toPay + result.bellFee + result.poodleFee + result.fee + result.memberFee + result.guestFee + (result.deposit < 0 ? result.deposit : 0)
-    }), {
-        deposit: 0,
-        toPay: 0
-    });
 
     const resultFor = (playerKey: string): IPlayerResult => (playerResults[playerKey] || emptyPlayerResult);
     const kasseKey = '-Ka3tbKzyn3IUfa-kYvP';
@@ -58,7 +50,7 @@ export const PlayerContainer: React.FC = () => {
                 <PlayersGrid>
                     {
                         Object.keys(players).filter(key => key !== kasseKey).map(key =>
-                            showing(key) ?
+                            isExpanded(key) ?
                                 <Flipped shouldFlip={shouldFlip(key)} flipId={`playerGrid-${key}`}
                                          key={key}>
                                     <PlayerGridExpanded onClick={() => togglePlayer(key)}>
