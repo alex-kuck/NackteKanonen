@@ -15,16 +15,14 @@ export const TourLink: React.FC = () => {
 };
 
 export const Tour: React.FC = () => {
-    const firstHint = Date.UTC(2019, 2, 30, 19, 0, 0);
-    const secondHint = Date.UTC(2019, 3, 7, 19, 0, 0);
-    const countDown = useCountdown(firstHint);
+    const secondHint = Date.UTC(2019, 3, 10, 19, 0, 0);
+    const countDown = useCountdown(secondHint);
     return (
         <>
             <h1>Tour '19</h1>
             <h2>Nächste Informationen in:</h2>
             <TextCentered><h2 style={{fontSize: '2rem'}}>{countDown}</h2></TextCentered>
-            <ol style={{display: 'flex', flexDirection: 'column-reverse'}}>
-                {firstHint < Date.now() &&
+            <ol className={'tourHints'}>
                 <li>
                     In euren Umschlägen habt ihr einen ersten Hinweis auf das Programm der
                     diesjährigen Kegeltour bekommen.
@@ -45,9 +43,28 @@ export const Tour: React.FC = () => {
                         Benutzt zu Hause etwas Kleber, wenn ihr uns nicht auf den Leim gehen und schon am Start kleben bleiben wollt.
                     </span>
                 </li>
-                }
                 {secondHint < Date.now() && <li>
-
+                    <span>Ich packe meinen Koffer...</span>
+                    <ul>
+                        <li>ausreichend Klamotten für warmes und kaltes Wetter</li>
+                        <li>NK Pulli & T-Shirt</li>
+                        <li>Outdoorkleidung die dreckig werden darf (inkl. Schuhe)</li>
+                        <li>Badesachen</li>
+                        <li>Badetuch</li>
+                        <li>Kleidung für deine Rolle (siehe Umschlag)</li>
+                        <li>dein Puzzle (fertig mitbringen zum Treffpunkt)</li>
+                        <li>Taschengeld ( wir versuchen wie bei vorherigen Touren das meiste zu organisieren, jedoch kann es sein, dass ihr z. B. in Bars, Kasinos oder auf dem Strip selber zahlen müsst)</li>
+                        <li>Personalausweis/ Reisepass</li>
+                        <li>Krankenversicherungskarte</li>
+                        <li>EC- und/ oder Kreditkarte</li>
+                        <li>eine kleine Reiseapotheke (z.B. Sonnencreme, etwas gegen Kopfschmerzen hat auch noch nie geschadet)</li>
+                    </ul><br/>
+                    <span>Wer hat auch gerne:</span>
+                    <ul>
+                        <li>GoPro</li>
+                        <li>Utensilien für Beerpong</li>
+                        <li>Bälle jeglicher Art (Fußball, Football, etc.)</li>
+                    </ul>
                 </li>}
             </ol>
         </>
