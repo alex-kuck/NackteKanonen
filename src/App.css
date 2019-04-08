@@ -94,3 +94,12 @@ div.tour-link {
     text-decoration: none;
     font-size: larger;
 }
+
+ol.tourHints {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+ol.tourHints > li {
+    padding-bottom: 1rem;
+}

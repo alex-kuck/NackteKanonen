@@ -23,7 +23,6 @@ export const Penalties: React.FC = () => {
         },
         {offense: 'Gescheiterter Lauf', penalty: `${formattedCurrency(1)} für den Läufer`},
         {offense: 'Fernbleiben ohne Entschuldigung', penalty: formattedCurrency(15)},
-        {offense: 'Gescheiterter Lauf', penalty: `${formattedCurrency(1)} für den Läufer`},
     ];
 
     return (
