@@ -1,6 +1,6 @@
 import React from "react";
-import {formattedCurrency} from "./utils";
-import {Bold, CrossedOut} from "./styled_components";
+import { formattedCurrency } from "../utils";
+import { Bold, CrossedOut } from "../styled_components";
 
 export interface IPenalty {
     offense: string,
@@ -9,20 +9,20 @@ export interface IPenalty {
 
 export const Penalties: React.FC = () => {
     const penalties: IPenalty[] = [
-        {offense: 'Pudel', penalty: formattedCurrency(.25)},
-        {offense: 'Glöckchen', penalty: formattedCurrency(.5)},
-        {offense: 'Kugel gebracht bekommen', penalty: formattedCurrency(.5)},
+        { offense: 'Pudel', penalty: formattedCurrency(.25) },
+        { offense: 'Glöckchen', penalty: formattedCurrency(.5) },
+        { offense: 'Kugel gebracht bekommen', penalty: formattedCurrency(.5) },
         {
             offense: 'Offensichtlich warnen, dass jemand dran ist',
             penalty: `${formattedCurrency(0.5)} für Warnenden und Werfer`
         },
-        {offense: 'Fehlwurf', penalty: formattedCurrency(1)},
+        { offense: 'Fehlwurf', penalty: formattedCurrency(1) },
         {
             offense: 'Erfolgreich Kugel erlaufen',
             penalty: `${formattedCurrency(1)} für Werfer & Wurf wird schlechtestmöglich gewertet`
         },
-        {offense: 'Gescheiterter Lauf', penalty: `${formattedCurrency(1)} für den Läufer`},
-        {offense: 'Fernbleiben ohne Entschuldigung', penalty: formattedCurrency(15)},
+        { offense: 'Gescheiterter Lauf', penalty: `${formattedCurrency(1)} für den Läufer` },
+        { offense: 'Fernbleiben ohne Entschuldigung', penalty: formattedCurrency(15) },
     ];
 
     return (
@@ -30,26 +30,26 @@ export const Penalties: React.FC = () => {
             <h2>Strafen</h2>
             <table>
                 <thead>
-                <tr>
-                    <th>Vergehen</th>
-                    <th>Strafe</th>
-                </tr>
+                    <tr>
+                        <th>Vergehen</th>
+                        <th>Strafe</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {penalties.map(({offense, penalty}, index) =>
-                    <tr key={`penalties-${index}`}>
-                        <td>{offense}</td>
-                        <td>{penalty}</td>
-                    </tr>
-                )}
-                <tr>
-                    <td>Zu spät ohne Benachrichtigung</td>
-                    <td>
-                        {formattedCurrency(5)} bis 15 Minuten<br/>
-                        {formattedCurrency(10)} bis 30 Minuten<br/>
-                        {formattedCurrency(15)} danach
+                    {penalties.map(({ offense, penalty }, index) =>
+                        <tr key={`penalties-${index}`}>
+                            <td>{offense}</td>
+                            <td>{penalty}</td>
+                        </tr>
+                    )}
+                    <tr>
+                        <td>Zu spät ohne Benachrichtigung</td>
+                        <td>
+                            {formattedCurrency(5)} bis 15 Minuten<br />
+                            {formattedCurrency(10)} bis 30 Minuten<br />
+                            {formattedCurrency(15)} danach
                     </td>
-                </tr>
+                    </tr>
                 </tbody>
             </table>
         </>
@@ -59,7 +59,7 @@ export const Penalties: React.FC = () => {
 export const Rules: React.FC = () => (
     <>
         <h2>Regularien</h2>
-        <div style={{textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
             <h3>§ 1</h3>
             <span>Der Mitgliedsbeitrag pro Kegeln beträgt <CrossedOut>(5,00 € bis 06.04.2016)</CrossedOut> 10,00 €</span>
             <h3>§ 2</h3>
@@ -102,7 +102,7 @@ export const Rules: React.FC = () => (
 export const Statutes: React.FC = () => (
     <div>
         <h1>Statuten</h1>
-        <Penalties/>
-        <Rules/>
+        <Penalties />
+        <Rules />
     </div>
 );
