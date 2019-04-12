@@ -40,14 +40,14 @@ export const Tour: React.FC = () => {
                         fontStyle: 'italic',
                         fontSize: '.8rem'
                     }}><Bold>Extra-Tipp:</Bold>&nbsp;
-                            Benutzt zu Hause etwas Kleber, wenn ihr uns nicht auf den Leim gehen und schon am Start kleben bleiben wollt.
+                                Benutzt zu Hause etwas Kleber, wenn ihr uns nicht auf den Leim gehen und schon am Start kleben bleiben wollt.
                     </span>
                 </li>
                 {secondHint < Date.now() && <li>
                     <span>Ich packe meinen Koffer...</span>
                     <ul>
                         <li>ausreichend Klamotten für warmes und kaltes Wetter</li>
-                        <li>NK Pulli & T-Shirt</li>
+                        <li>NK Pulli &amp; T-Shirt</li>
                         <li>Outdoorkleidung die dreckig werden darf (inkl. Schuhe)</li>
                         <li>Badesachen</li>
                         <li>Badetuch</li>
