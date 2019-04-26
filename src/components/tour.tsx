@@ -15,7 +15,7 @@ export const TourLink: React.FC = () => {
 };
 
 export const Tour: React.FC = () => {
-    const nextHint = Date.UTC(2019, 3, 20, 18, 0, 0);
+    const nextHint = Date.UTC(2019, 3, 29, 19, 0, 0);
     const countDown = useCountdown(nextHint);
     return (
         <>
@@ -74,7 +74,6 @@ export const Tour: React.FC = () => {
                         <li>Bälle jeglicher Art (Fußball, Football, etc.)</li>
                     </ul>
                 </li>
-                {nextHint < Date.now() &&
                 <li>
                     <span>Fakten, Fakten, Fakten:</span>
                     <ul>
@@ -84,6 +83,13 @@ export const Tour: React.FC = () => {
                         <li>47 Glocken</li>
                     </ul>
                 </li>
+                {nextHint < Date.now() &&
+                    <li><br/>
+                        <iframe width="80%" height="315"
+                                src="https://www.youtube.com/embed/9jK-NcRmVcw" frameBorder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen></iframe>
+                    </li>
                 }
             </ol>
         </>
