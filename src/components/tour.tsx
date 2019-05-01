@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {Bold, TextCentered} from "../styled_components";
 
 export const TourLink: React.FC = () => {
-    const countDown = useCountdown(Date.UTC(2019, 4, 1, 13, 0, 0));
+    const countDown = useCountdown(Date.UTC(2019, 4, 1, 12, 0, 0));
 
     return (
         <Link to={'/tour'}>
