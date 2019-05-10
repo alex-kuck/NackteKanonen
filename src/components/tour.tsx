@@ -83,14 +83,13 @@ export const Tour: React.FC = () => {
                         <li>47 Glocken</li>
                     </ul>
                 </li>
-                {nextHint < Date.now() &&
                     <li><br/>
-                        <iframe width="80%" height="315"
+                        <iframe title="Final Countdown"
+                                width="80%" height="315"
                                 src="https://www.youtube.com/embed/9jK-NcRmVcw" frameBorder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen></iframe>
                     </li>
-                }
             </ol>
         </>
     );

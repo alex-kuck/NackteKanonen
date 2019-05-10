@@ -1,10 +1,10 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useReducer } from "react";
 import { Flipper, Flipped } from 'react-flip-toolkit';
 
 import { DataContext } from "./data";
 import { emptyPlayerResult, IPlayerResult } from "../models";
 import { PlayerGridCollapsed, PlayerGridExpanded, PlayersGrid } from "../styled_components";
-import { formattedNumber, shouldFlip } from "../utils";
+import { shouldFlip } from "../utils";
 import { PlayerCollapsed, PlayerExpanded } from "../components";
 import { Overview } from "../components";
 
