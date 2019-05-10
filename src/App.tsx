@@ -23,9 +23,9 @@ class App extends Component {
                         </nav>
                     </header>
                     <main>
-                        <div className="tour-link">
+                        {false && <div className="tour-link">
                             <TourLink />
-                        </div>
+                        </div>}
                         <DataWrapper>
                             <Route path={'/'} exact component={PlayersContainer} />
                             <Route path={'/statutes'} component={Statutes} />
