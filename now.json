@@ -1,18 +1,70 @@
 {
   "version": 2,
   "name": "nackte-kanonen",
+  "alias": ["nackte-kanonen"],
+  "build": {
+    "env": {
+      "REACT_APP_FIREBASE_AUTH_DOMAIN": "nackte-kanonen.firebaseapp.com",
+      "REACT_APP_FIREBASE_DB_URL": "https://nackte-kanonen.firebaseio.com",
+      "REACT_APP_FIREBASE_PROJECT_ID": "nackte-kanonen",
+      "REACT_APP_FIREBASE_STORAGE_BUCKET": "nackte-kanonen.appspot.com",
+      "REACT_APP_FIREBASE_API_KEY": "@firebase_api_key",
+      "REACT_APP_FIREBASE_MSG_SENDER_ID": "@firebase_msg_sender_id"
+    }
+  },
   "builds": [
-    {"src": "package.json", "use": "@now/static-build", "config": {"distDir": "build"}}
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
   ],
   "routes": [
-    {"src": "/static/(.*)", "headers": {"cache-control": "s-maxage=31536000,immutable"}, "dest": "/static/$1"},
-    {"src": "/img/(.*)", "headers": {"cache-control": "s-maxage=31536000,immutable"}, "dest": "/img/$1"},
-    {"src": "/favicon.ico", "dest": "/favicon.ico"},
-    {"src": "/asset-manifest.json", "dest": "/asset-manifest.json"},
-    {"src": "/manifest.json", "dest": "/manifest.json"},
-    {"src": "/precache-manifest.(.*)", "dest": "/precache-manifest.$1"},
-    {"src": "/service-worker.js", "headers": {"cache-control": "s-maxage=0"}, "dest": "/service-worker.js"},
-    {"src": "/(.*)", "headers": {"cache-control": "s-maxage=0"}, "dest": "/index.html"}
+    {
+      "src": "/static/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable"
+      },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/img/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable"
+      },
+      "dest": "/img/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/asset-manifest.json",
+      "dest": "/asset-manifest.json"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/precache-manifest.(.*)",
+      "dest": "/precache-manifest.$1"
+    },
+    {
+      "src": "/service-worker.js",
+      "headers": {
+        "cache-control": "s-maxage=0"
+      },
+      "dest": "/service-worker.js"
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=0"
+      },
+      "dest": "/index.html"
+    }
   ]
 }
-
