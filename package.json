@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "fb:deploy": "yarn build && firebase deploy",
+    "fb:deploy": "yarn build && firebase deploy --only hosting,database",
     "now-build": "react-scripts build",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "react-scripts test",
@@ -38,7 +38,6 @@
     "@babel/core": "^7.3.4",
     "@storybook/react": "^5.0.1",
     "@types/react-router-dom": "^4.3.1",
-    "babel-loader": "^8.0.5",
     "react-testing-library": "^6.0.0"
   }
 }
