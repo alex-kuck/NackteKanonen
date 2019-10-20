@@ -11,31 +11,31 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <header className="App-header">
-                        <nav className={'navbar'}>
+                        <nav className={ 'navbar' }>
                             <ul>
-                                <li className={'brand'}>
-                                    <Link to={'/'}>Nackte Kanonen</Link>
+                                <li className={ 'brand' }>
+                                    <Link to={ '/' }>Nackte Kanonen</Link>
                                 </li>
-                                <li className={'navLink'}>
-                                    <Link to={'/statutes'}>Statuten</Link>
+                                <li className={ 'navLink' }>
+                                    <Link to={ '/statutes' }>Statuten</Link>
                                 </li>
                             </ul>
                         </nav>
                     </header>
                     <main>
-                        {false && <div className="tour-link">
-                            <TourLink />
-                        </div>}
+                        { false && <div className="tour-link">
+                            <TourLink/>
+                        </div> }
                         <DataWrapper>
-                            <Route path={'/'} exact component={PlayersContainer} />
-                            <Route path={'/statutes'} component={Statutes} />
-                            <Route path={'/tour'} component={Tour} />
+                            <Route path={ '/' } exact component={ PlayersContainer }/>
+                            <Route path={ '/statutes' } component={ Statutes }/>
+                            <Route path={ '/tour' } component={ Tour }/>
                         </DataWrapper>
                     </main>
                     <footer>
                         <div>
                             <span>&copy; Alex Kucksdorf</span>
-                            <span>{process.env.REACT_APP_VERSION}</span>
+                            <span>{ process.env.REACT_APP_VERSION }</span>
                         </div>
                     </footer>
                 </div>

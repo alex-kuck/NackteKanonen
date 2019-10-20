@@ -1,5 +1,5 @@
-import {db} from './firebase';
-import {useEffect, useState} from "react";
+import { db } from './firebase';
+import { useEffect, useState } from "react";
 import {
     emptyPlayers,
     emptyResults, emptySettings, emptySettingsAtTime,
@@ -17,10 +17,10 @@ export interface IFirebaseData {
 }
 
 export function useFirebase(): (IFirebaseData) {
-    const [players, setPlayers] = useState<IPlayers>(emptyPlayers);
-    const [results, setResults] = useState<IResults>(emptyResults);
-    const [settings, setSettings] = useState<ISettings>(emptySettings);
-    const [settingsAtTime, setSettingsAtTime] = useState<ISettingAtTimes>(emptySettingsAtTime);
+    const [ players, setPlayers ] = useState<IPlayers>(emptyPlayers);
+    const [ results, setResults ] = useState<IResults>(emptyResults);
+    const [ settings, setSettings ] = useState<ISettings>(emptySettings);
+    const [ settingsAtTime, setSettingsAtTime ] = useState<ISettingAtTimes>(emptySettingsAtTime);
 
     const getPlayers = () => db.ref('players').on('value', snapshot => {
         if (snapshot !== null) {
@@ -57,5 +57,5 @@ export function useFirebase(): (IFirebaseData) {
         getSettingsAtTime();
     }, []);
 
-    return {players, results, settings, settingsAtTime};
+    return { players, results, settings, settingsAtTime };
 }
