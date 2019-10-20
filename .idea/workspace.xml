@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d5ba8ae-7a6b-44b0-836d-1c08226360e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/penalties.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/playerPresence.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/rules.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/statutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/statutes.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,13 +108,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/node_modules/dom-testing-library/node_modules/wait-for-expect/lib/index.d.js" />
-        <option value="$PROJECT_DIR$/node_modules/dom-testing-library/node_modules/wait-for-expect/lib/toBeInRangeMatcher.d.js" />
-        <option value="$PROJECT_DIR$/node_modules/dom-testing-library/node_modules/wait-for-expect/lib/waitForExpect.spec.d.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
