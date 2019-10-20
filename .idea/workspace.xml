@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d5ba8ae-7a6b-44b0-836d-1c08226360e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/penalties.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playerPresence.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/rules.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/players.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/players.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/statutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/statutes.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -57,7 +59,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -104,20 +106,19 @@
       <workItem from="1556312870231" duration="1108000" />
       <workItem from="1556703591860" duration="17000" />
       <workItem from="1571597124866" duration="28000" />
-      <workItem from="1571597171187" duration="1118000" />
+      <workItem from="1571597171187" duration="459000" />
     </task>
-    <task id="LOCAL-00001" summary="Misc - Update react-testing-library">
-      <created>1571597922425</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1571597922425</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/node_modules/dom-testing-library/node_modules/wait-for-expect/lib/index.d.js" />
+        <option value="$PROJECT_DIR$/node_modules/dom-testing-library/node_modules/wait-for-expect/lib/toBeInRangeMatcher.d.js" />
+        <option value="$PROJECT_DIR$/node_modules/dom-testing-library/node_modules/wait-for-expect/lib/waitForExpect.spec.d.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -131,9 +132,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Misc - Update react-testing-library" />
-    <option name="LAST_COMMIT_MESSAGE" value="Misc - Update react-testing-library" />
   </component>
 </project>
