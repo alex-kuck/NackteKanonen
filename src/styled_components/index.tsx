@@ -95,3 +95,7 @@ export const CrossedOut = styled.span`
 export const Bold = styled.span`
   font-weight: bold;
 `;
+
+export const Link = styled.a`
+color: darkred;
+`;

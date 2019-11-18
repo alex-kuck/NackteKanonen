@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DataContext } from "../containers";
-import { OverviewGrid, Bold, Logo } from "../styled_components";
+import { OverviewGrid, Bold, Logo, Link } from "../styled_components";
 import { formattedCurrency } from "../utils";
 
 export const Overview: React.FC = () => {
@@ -14,7 +14,11 @@ export const Overview: React.FC = () => {
         <>
             <OverviewGrid>
                 <div style={{ gridArea: 'info', textAlign: 'center', fontSize: 'x-large' }}>
-                    <span>Kassenstand: <Bold>{formattedCurrency(info.total)}</Bold></span><br />
+                    <span>
+                        <Link href='https://paypal.me/pools/c/87VSw13aSa'>
+                            Kassenstand: <Bold>{formattedCurrency(info.total)}</Bold>
+                        </Link>
+                    </span><br />
                     <span>Mit ausstehenden Zahlungen: <Bold>{formattedCurrency(info.theoretical)}</Bold></span>
                 </div>
                 <div style={{ gridArea: 'logo' }}>
