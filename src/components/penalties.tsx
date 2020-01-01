@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { formattedCurrency } from "../utils";
 
 export interface IPenalty {
     offense: string,
-    penalty: string
+    penalty: string | ReactNode
 }
 
 export const Penalties: React.FC = () => {
@@ -22,6 +22,15 @@ export const Penalties: React.FC = () => {
         },
         { offense: 'Gescheiterter Lauf', penalty: `${formattedCurrency(1)} für den Läufer` },
         { offense: 'Fernbleiben ohne Entschuldigung', penalty: formattedCurrency(15) },
+        {
+            offense: 'Zu spät ohne Benachrichtigung',
+            penalty:
+                <td>
+                    {formattedCurrency(5)} bis 15 Minuten<br />
+                    {formattedCurrency(10)} bis 30 Minuten<br />
+                    {formattedCurrency(15)} danach
+            </td>
+        },
         { offense: 'Verlust des Kegelpins', penalty: formattedCurrency(10) },
     ];
 
@@ -42,14 +51,6 @@ export const Penalties: React.FC = () => {
                             <td>{penalty}</td>
                         </tr>
                     )}
-                    <tr>
-                        <td>Zu spät ohne Benachrichtigung</td>
-                        <td>
-                            {formattedCurrency(5)} bis 15 Minuten<br />
-                            {formattedCurrency(10)} bis 30 Minuten<br />
-                            {formattedCurrency(15)} danach
-                    </td>
-                    </tr>
                 </tbody>
             </table>
         </>
