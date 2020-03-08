@@ -89,7 +89,7 @@ export function useCountdown(targetDateInMillisUTC: number): string {
             setCurrentTime(Date.now());
         }
 
-        timeoutRef.current = window.setInterval(tick, 1000);
+        timeoutRef.current = window.setInterval(tick, 200);
         return () => clearInterval(timeoutRef.current);
     }, [setCurrentTime]);
 
