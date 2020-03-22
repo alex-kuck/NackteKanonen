@@ -5,7 +5,8 @@ import { TextCentered } from "../styled_components";
 import { YoutubeVideo } from "./youtubeVideo";
 
 export const TourLink: React.FC = () => {
-    const countDown = useCountdown(Date.UTC(2020, 5, 4, 17, 0, 0));
+    const nextHint = Date.UTC(2020, 5, 4, 17, 0, 0);
+    const countDown = useCountdown(nextHint);
 
     return (
         <Link to={ '/tour' }>
@@ -27,9 +28,11 @@ export const Tour: React.FC = () => {
                 <li>
                     Die Anreise zur Kegeltour erfolgt bereits am Abend des 04.06.2020 (Donnerstag).
                 </li>
-                { false && <li><br/>
-                    { <YoutubeVideo title="Final Countdown"
-                                    url="https://www.youtube.com/embed/9jK-NcRmVcw"/> }
+                { Date.now() > nextHint && <li>Diese Videos sind nur für die Kegelbrüder der Nackten Kanonen bestimmt! Bitte gebt den Link nicht weiter!<br/><br/>
+                    Bald ist es so weit... Wir füttern euch mit losen und sinnlosen, reichen und hilfreichen Hinweisen für die angehende Kegeltour. 
+                    Freut euch auf ein reiches und glorreiches Gelage..<br/><br/>
+                    { <YoutubeVideo title="Erster Hinweis"
+                                    url="https://www.youtube.com/embed/Ce3V39z0qXk"/> }
                 </li> }
             </ol>
         </>
