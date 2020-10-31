@@ -11,7 +11,7 @@ export const Rules: React.FC = () => (
             <span>Ein Glöckchen führt nicht zu einer Wiederholung des Wurfes.</span>
             <h3>§ 3</h3>
             <span>Zum Erlaufen einer Kugel:</span>
-            <ul>
+            <ul style={ { textAlign: 'start' } }>
                 <li>Das absichtliche Blocken von Läufern ist <Bold>nicht</Bold> erlaubt.</li>
                 <li>Für einen gültigen Lauf muss der Läufer hinter dem Werfer befindlich sein, bis
                     die Kegelkugel die Hand des Werfers verlässt.
