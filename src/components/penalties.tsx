@@ -33,6 +33,7 @@ export const Penalties: React.FC = () => {
         },
         { offense: 'Verlust des Kegelpins', penalty: formattedCurrency(10) },
         { offense: 'Beim Ausspielen des Kegelkönigs auch im 6. Wurf nicht abräumen', penalty: formattedCurrency(1) },
+        { offense: 'Ein Wasser bestellen', penalty: formattedCurrency(0.25)}
     ];
 
     return (
