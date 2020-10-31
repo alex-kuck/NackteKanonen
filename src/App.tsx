@@ -23,9 +23,9 @@ class App extends Component {
                         </nav>
                     </header>
                     <main>
-                        <div className="tour-link">
-                            <TourLink/>
-                        </div>
+                        {/*<div className="tour-link">*/}
+                        {/*    <TourLink/>*/}
+                        {/*</div>*/}
                         <DataWrapper>
                             <Route path={ '/' } exact component={ PlayersContainer }/>
                             <Route path={ '/statutes' } component={ Statutes }/>
