@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, {useContext, useMemo} from "react";
 import {useFirebase} from "../firebase";
 import {IPlayerResults, IPlayers, IResults, ISettingAtTimes} from "../models";
 import {calculateAll} from "../utils";
@@ -27,4 +27,5 @@ export const defaultDataContext: (IDataContext) = {
     results: {},
     settingsAtTime: {}
 };
-export const DataContext = React.createContext(defaultDataContext);
+const DataContext = React.createContext(defaultDataContext);
+export const useDataContext = () => useContext(DataContext);
