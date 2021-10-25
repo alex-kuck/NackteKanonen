@@ -1,17 +1,17 @@
 import React from "react";
-import { Bold, CrossedOut } from "../styled_components";
+import {Bold, CrossedOut} from "../styled_components";
 
 export const Rules: React.FC = () => (
     <>
         <h2>Regularien</h2>
-        <div style={ { textAlign: 'center' } }>
+        <div style={{textAlign: 'center'}}>
             <h3>§ 1</h3>
             <span>Der Mitgliedsbeitrag pro Kegeln beträgt <CrossedOut>(5,00 € bis 06.04.2016)</CrossedOut> 10,00 €</span>
             <h3>§ 2</h3>
             <span>Ein Glöckchen führt nicht zu einer Wiederholung des Wurfes.</span>
             <h3>§ 3</h3>
             <span>Zum Erlaufen einer Kugel:</span>
-            <ul style={ { textAlign: 'start' } }>
+            <ul style={{textAlign: 'start'}}>
                 <li>Das absichtliche Blocken von Läufern ist <Bold>nicht</Bold> erlaubt.</li>
                 <li>Für einen gültigen Lauf muss der Läufer hinter dem Werfer befindlich sein, bis
                     die Kegelkugel die Hand des Werfers verlässt.
@@ -35,7 +35,7 @@ export const Rules: React.FC = () => (
             <h3>§ 8</h3>
             <span>Für jedes Mitglied ist die Teilnahme am <a
                 href="https://www.kicktipp.de/nacktekanonenbuli/"
-                target={ '_blank' }
+                target={'_blank'}
                 rel="noopener noreferrer">Kicktipp-Spiel</a> verpflichtend.</span>
             <h3>§ 9</h3>
             <span>Wer beim Trinkspiel Fingern seinen Finger wieder auf das Glas legt, obwohl er richtig getippt hat, zeigt offensichtlich so großes Interesse am Spiel, dass er weiterspielen muss.</span>
@@ -43,7 +43,7 @@ export const Rules: React.FC = () => (
             <span>Verspätungen müssen bis spätestens 1h vor Kegelbeginn angekündigt werden.</span>
             <h3>§ 11</h3>
             <span>Jedes Mitglied des Kegelclubs hat einen metallenen Kegelpin. Dieser ist zu allen Zeiten mitzuführen.</span>
-            <ol style={ { textAlign: 'start' } }>
+            <ol style={{textAlign: 'start'}}>
                 <li>Fordert ein Mitglied ein anderes auf seinen Pin zu präsentieren, muss dieser der
                     Aufforderung nachkommen. Wer seinen Pin nicht dabei hat, muss dem
                     anderen ein Getränk ausgeben. Kann der aufgeforderte Kegler seinen Pin

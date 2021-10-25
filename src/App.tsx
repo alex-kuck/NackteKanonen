@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './App.css';
-import { DataWrapper, PlayersContainer } from "./containers";
-import { Statutes, Tour, TourLink } from "./components";
+import {DataWrapper, PlayersContainer} from "./containers";
+import {Statutes, Tour} from "./components";
 
 class App extends Component {
     render() {
@@ -11,13 +10,13 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <header className="App-header">
-                        <nav className={ 'navbar' }>
+                        <nav className={'navbar'}>
                             <ul>
-                                <li className={ 'brand' }>
-                                    <Link to={ '/' }>Nackte Kanonen</Link>
+                                <li className={'brand'}>
+                                    <Link to={'/'}>Nackte Kanonen</Link>
                                 </li>
-                                <li className={ 'navLink' }>
-                                    <Link to={ '/statutes' }>Statuten</Link>
+                                <li className={'navLink'}>
+                                    <Link to={'/statutes'}>Statuten</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -27,15 +26,15 @@ class App extends Component {
                         {/*    <TourLink/>*/}
                         {/*</div>*/}
                         <DataWrapper>
-                            <Route path={ '/' } exact component={ PlayersContainer }/>
-                            <Route path={ '/statutes' } component={ Statutes }/>
-                            <Route path={ '/tour' } component={ Tour }/>
+                            <Route path={'/'} exact component={PlayersContainer}/>
+                            <Route path={'/statutes'} component={Statutes}/>
+                            <Route path={'/tour'} component={Tour}/>
                         </DataWrapper>
                     </main>
                     <footer>
                         <div>
                             <span>&copy; Alex Kucksdorf</span>
-                            <span>{ process.env.REACT_APP_VERSION }</span>
+                            <span>{process.env.REACT_APP_VERSION}</span>
                         </div>
                     </footer>
                 </div>
