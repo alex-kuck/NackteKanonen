@@ -43,14 +43,14 @@ export const Rules: React.FC = () => (
             <span>Verspätungen müssen bis spätestens 1h vor Kegelbeginn angekündigt werden.</span>
             <h3>§ 11</h3>
             <span>Jedes Mitglied des Kegelclubs hat einen metallenen Kegelpin. Dieser ist zu allen Zeiten mitzuführen.</span>
-            <ol style={{ textAlign: 'center' }}>
+            <ol style={{ textAlign: 'center', listStylePosition: 'inside' }}>
                 <li>Fordert ein Mitglied ein anderes auf seinen Pin zu präsentieren, muss dieser der
                     Aufforderung nachkommen. Wer seinen Pin nicht dabei hat, muss dem
                     anderen ein Getränk ausgeben. Kann der aufgeforderte Kegler seinen Pin
                     vorweisen, erhält er für seine Mühe ein Getränk vom Fragenden.
                 </li>
                 <li>Fordert ein Mitglied eine Gruppe von Keglern auf ihre Pins vorzuzeigen, gilt
-                    folgendes:<br />Haben alle Kegler ihren Pin dabei, muss der Fragende allen
+                    folgendes: Haben alle Kegler ihren Pin dabei, muss der Fragende allen
                     anwesenden Keglern ein Getränk ausgeben (eine Runde). Wenn min. 1 Kegler der
                     Aufforderung <Bold>nicht</Bold> nachkommen kann, müssen alle den
                     anderen Keglern eine Runde ausgeben.
@@ -58,7 +58,7 @@ export const Rules: React.FC = () => (
             </ol>
             <h3>§ 12</h3>
             <span>Königsspiel</span>
-            <ol style={{ textAlign: 'center' }}>
+            <ol style={{ textAlign: 'center', listStylePosition: 'inside' }}>
                 <li>Es wird eine komplette Reihe gespielt
                 </li>
                 <li>Die Differenz zum Kegelkönig werden als Strafe in € fällig.
