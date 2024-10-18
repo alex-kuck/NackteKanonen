@@ -11,7 +11,7 @@ export const Rules: React.FC = () => (
             <span>Ein Glöckchen führt nicht zu einer Wiederholung des Wurfes.</span>
             <h3>§ 3</h3>
             <span>Zum Erlaufen einer Kugel:</span>
-            <ul style={{ textAlign: 'start' }}>
+            <ul style={{ textAlign: 'center' }}>
                 <li>Das absichtliche Blocken von Läufern ist <Bold>nicht</Bold> erlaubt.</li>
                 <li>Für einen gültigen Lauf muss der Läufer hinter dem Werfer befindlich sein, bis
                     die Kegelkugel die Hand des Werfers verlässt.
@@ -43,7 +43,7 @@ export const Rules: React.FC = () => (
             <span>Verspätungen müssen bis spätestens 1h vor Kegelbeginn angekündigt werden.</span>
             <h3>§ 11</h3>
             <span>Jedes Mitglied des Kegelclubs hat einen metallenen Kegelpin. Dieser ist zu allen Zeiten mitzuführen.</span>
-            <ol style={{ textAlign: 'start' }}>
+            <ol style={{ textAlign: 'center' }}>
                 <li>Fordert ein Mitglied ein anderes auf seinen Pin zu präsentieren, muss dieser der
                     Aufforderung nachkommen. Wer seinen Pin nicht dabei hat, muss dem
                     anderen ein Getränk ausgeben. Kann der aufgeforderte Kegler seinen Pin
@@ -58,7 +58,7 @@ export const Rules: React.FC = () => (
             </ol>
             <h3>§ 12</h3>
             <span>Königsspiel</span>
-            <ol style={{ textAlign: 'start' }}>
+            <ol style={{ textAlign: 'center' }}>
                 <li>Es wird eine komplette Reihe gespielt
                 </li>
                 <li>Die Differenz zum Kegelkönig werden als Strafe in € fällig.
