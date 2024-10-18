@@ -1,43 +1,13 @@
+import {useEffect, useRef, useState} from "react";
 import {
     emptyPlayerResult,
     emptySettings,
     IPlayerResults,
-    IResultList, IResults,
+    IResultList,
+    IResults,
     ISettingAtTimes,
     ISettings
 } from '../models';
-import {useEffect, useReducer, useRef, useState} from "react";
-
-interface IBrowserDimension {
-    height: number,
-    width: number,
-}
-
-export function useBrowserDimension(): IBrowserDimension {
-    interface IActionType {
-        type: 'RESIZE'
-    }
-
-    function reducer(state: IBrowserDimension, action: IActionType) {
-        switch (action.type) {
-            case 'RESIZE':
-                return {width: window.innerWidth, height: window.innerHeight};
-            default:
-                return state;
-        }
-    }
-
-    const [state, dispatch] = useReducer(reducer, {
-        width: window.innerWidth,
-        height: window.innerHeight
-    });
-
-    useEffect(() => {
-        window.addEventListener('resize', () => dispatch({type: 'RESIZE'}));
-    }, []);
-
-    return {...state};
-}
 
 export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes): IPlayerResults => {
     return Object.entries(results).reduce((acc, [playerKey, resultList]: [string, IResultList]) => {
