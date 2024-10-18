@@ -9,30 +9,27 @@ import {
     ISettings
 } from '../models';
 
-export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes): IPlayerResults => {
-    return Object.entries(results).reduce((acc, [playerKey, resultList]: [string, IResultList]) => {
-        return {
-            ...acc, [playerKey]: Object.values(resultList).reduce((acc, playerResult) => {
-                const setting = safeSetting(settingsAtTimes, playerResult.setting);
-                const {present, member, poodle, fee, bell, deposit} = playerResult;
-                return {
-                    absentGuest: acc.absentGuest + (!present && !member ? 1 : 0),
-                    absentMember: acc.absentMember + (!present && member ? 1 : 0),
-                    bellFee: acc.bellFee + bell * setting.bellFee,
-                    bells: acc.bells + bell,
-                    deposit: acc.deposit + deposit,
-                    fee: acc.fee + fee,
-                    guestFee: acc.guestFee + (present && !member ? setting.guestFee : 0),
-                    memberFee: acc.memberFee + (member ? setting.memberFee : 0),
-                    poodleFee: acc.poodleFee + poodle * setting.poodleFee,
-                    poodles: acc.poodles + poodle,
-                    presentGuest: acc.presentGuest + (present && !member ? 1 : 0),
-                    presentMember: acc.presentMember + (present && member ? 1 : 0),
-                };
-            }, emptyPlayerResult)
-        };
-    }, {});
-};
+export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes): IPlayerResults =>
+    Object.entries(results).reduce((acc, [playerKey, resultList]: [string, IResultList]) => ({
+        ...acc, [playerKey]: Object.values(resultList).reduce((acc, playerResult) => {
+            const setting = safeSetting(settingsAtTimes, playerResult.setting);
+            const {present, member, poodle, fee, bell, deposit} = playerResult;
+            return {
+                absentGuest: acc.absentGuest + (!present && !member ? 1 : 0),
+                absentMember: acc.absentMember + (!present && member ? 1 : 0),
+                bellFee: acc.bellFee + bell * setting.bellFee,
+                bells: acc.bells + bell,
+                deposit: acc.deposit + deposit,
+                fee: acc.fee + fee,
+                guestFee: acc.guestFee + (present && !member ? setting.guestFee : 0),
+                memberFee: acc.memberFee + (member ? setting.memberFee : 0),
+                poodleFee: acc.poodleFee + poodle * setting.poodleFee,
+                poodles: acc.poodles + poodle,
+                presentGuest: acc.presentGuest + (present && !member ? 1 : 0),
+                presentMember: acc.presentMember + (present && member ? 1 : 0),
+            };
+        }, emptyPlayerResult)
+    }), {});
 
 export const formattedNumber = (value: number) => new Intl.NumberFormat('de-DE', {
     minimumFractionDigits: 2,
@@ -46,7 +43,7 @@ export const formattedCurrency = (value: number) => new Intl.NumberFormat('de-DE
     maximumFractionDigits: 2
 }).format(value);
 
-export const shouldFlip = (playerKey: string) => (prev: string, current: string) => playerKey === current;
+export const shouldFlip = (playerKey: string) => (_prev: string, current: string) => playerKey === current;
 
 const safeSetting = (settings: ISettingAtTimes, settingsKey: string): ISettings => settings[settingsKey] ? settings[settingsKey].setting : emptySettings;
 
