@@ -15,6 +15,7 @@ export interface IPlayerResult {
     poodleFee: number,
     presentMember: number,
     presentGuest: number,
+    date: number,
 }
 
 export interface IPlayers {
@@ -92,4 +93,5 @@ export const emptyPlayerResult: IPlayerResult = {
     poodleFee: 0,
     presentMember: 0,
     presentGuest: 0,
+    date: 0,
 };

@@ -13,7 +13,7 @@ export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes
     Object.entries(results).reduce((acc, [playerKey, resultList]: [string, IResultList]) => ({
         ...acc, [playerKey]: Object.values(resultList).reduce((acc, playerResult) => {
             const setting = safeSetting(settingsAtTimes, playerResult.setting);
-            const {present, member, poodle, fee, bell, deposit} = playerResult;
+            const {present, member, poodle, fee, bell, deposit, date} = playerResult;
             return {
                 absentGuest: acc.absentGuest + (!present && !member ? 1 : 0),
                 absentMember: acc.absentMember + (!present && member ? 1 : 0),
@@ -27,6 +27,7 @@ export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes
                 poodles: acc.poodles + poodle,
                 presentGuest: acc.presentGuest + (present && !member ? 1 : 0),
                 presentMember: acc.presentMember + (present && member ? 1 : 0),
+                date: Math.max(acc.date, date),
             };
         }, emptyPlayerResult)
     }), {});
@@ -42,6 +43,8 @@ export const formattedCurrency = (value: number) => new Intl.NumberFormat('de-DE
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
 }).format(value);
+
+export const formattedDate = (seconds: number) => seconds <= 0 ? 'N/A' : new Date(seconds * 1000).toLocaleDateString('de-DE');
 
 export const shouldFlip = (playerKey: string) => (_prev: string, current: string) => playerKey === current;
 
