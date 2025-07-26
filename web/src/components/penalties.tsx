@@ -6,7 +6,7 @@ export interface IPenalty {
     penalty: string | ReactNode
 }
 
-export const Penalties = () => {
+export const Penalties = ({ accentColor = "darkred" }: { accentColor?: string }) => {
     const penalties: IPenalty[] = [
         {offense: 'Pudel', penalty: formattedCurrency(.25)},
         {offense: 'Glöckchen', penalty: formattedCurrency(.5)},
@@ -41,23 +41,30 @@ export const Penalties = () => {
 
     return (
         <>
-            <h2>Strafen</h2>
-            <table>
+            <h2 style={{ color: accentColor, textAlign: 'center', fontWeight: 700, marginBottom: 20 }}>Strafen</h2>
+            <table style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                background: '#fafafa',
+                borderRadius: 8,
+                overflow: 'hidden',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+            }}>
                 <thead>
-                <tr>
-                    <th>Vergehen</th>
-                    <th>Strafe</th>
+                <tr style={{ background: accentColor, color: '#fff' }}>
+                    <th style={{ padding: '12px 8px', fontWeight: 600, fontSize: '1rem', border: 'none' }}>Vergehen</th>
+                    <th style={{ padding: '12px 8px', fontWeight: 600, fontSize: '1rem', border: 'none' }}>Strafe</th>
                 </tr>
                 </thead>
                 <tbody>
-                {penalties.map(({offense, penalty}, index) =>
-                    <tr key={`penalties-${index}`}>
-                        <td>{offense}</td>
-                        <td>{penalty}</td>
+                {penalties.map((p, i) => (
+                    <tr key={i} style={{ borderBottom: '1px solid #eee' }}>
+                        <td style={{ padding: '10px 8px', color: accentColor, fontWeight: 500 }}>{p.offense}</td>
+                        <td style={{ padding: '10px 8px' }}>{p.penalty}</td>
                     </tr>
-                )}
+                ))}
                 </tbody>
             </table>
         </>
     );
-};
+}
