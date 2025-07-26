@@ -1,29 +1,29 @@
 {
     "name": "nackte-kanonen",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "private": true,
     "dependencies": {
-        "@types/jest": "24.0.11",
-        "@types/node": "11.11.0",
-        "@types/react": "16.8.7",
-        "@types/react-dom": "16.8.2",
-        "emotion": "^10.0.9",
-        "firebase": "^5.8.6",
-        "react": "^16.8.4",
-        "react-dom": "^16.8.4",
-        "react-flip-toolkit": "^6.5.7",
-        "react-router-dom": "^4.3.1",
-        "react-scripts": "^3.0.1",
-        "typescript": "3.3.3333"
+        "@emotion/react": "^11.14.0",
+        "@emotion/styled": "^11.14.1",
+        "@types/jest": "30.0.0",
+        "@types/node": "24.1.0",
+        "@types/react": "19.1.8",
+        "@types/react-dom": "19.1.6",
+        "emotion": "^11.0.0",
+        "firebase": "^12.0.0",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "react-flip-toolkit": "^7.2.4",
+        "react-router-dom": "^7.7.1",
+        "typescript": "5.8.3"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "start": "nx serve web",
+        "build": "nx build web",
         "fb:deploy": "yarn build && firebase deploy --only hosting,database",
-        "now-build": "react-scripts build",
         "storybook": "start-storybook -p 9001 -c .storybook",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "test": "nx test web",
+        "dev": "nx serve web"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -35,10 +35,33 @@
         "not op_mini all"
     ],
     "devDependencies": {
-        "@babel/core": "^7.3.4",
-        "@storybook/react": "^5.0.1",
-        "@testing-library/dom": "^6.8.1",
-        "@testing-library/react": "^9.3.0",
-        "@types/react-router-dom": "^4.3.1"
+        "@babel/core": "^7.28.0",
+        "@nx/devkit": "21.3.7",
+        "@nx/js": "21.3.7",
+        "@nx/playwright": "21.3.7",
+        "@nx/react": "^21.3.7",
+        "@nx/vite": "21.3.7",
+        "@nx/web": "21.3.7",
+        "@playwright/test": "^1.36.0",
+        "@rollup/plugin-replace": "^6.0.2",
+        "@storybook/react": "^9.0.18",
+        "@swc-node/register": "~1.9.1",
+        "@swc/core": "~1.5.7",
+        "@swc/helpers": "~0.5.11",
+        "@testing-library/dom": "^10.4.0",
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/react": "^16.3.0",
+        "@types/react-router-dom": "^5.3.3",
+        "@vitejs/plugin-react": "^4.7.0",
+        "@vitest/ui": "^3.0.0",
+        "eslint-config-react-app": "^7.0.1",
+        "jest-watch-typeahead": "^3.0.1",
+        "jiti": "2.4.2",
+        "jsdom": "~22.1.0",
+        "nx": "21.3.7",
+        "prettier": "^2.6.2",
+        "vite": "^7.0.6",
+        "vitest": "^3.2.4",
+        "web-vitals": "^5.0.3"
     }
 }
