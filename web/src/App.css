@@ -1,9 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette');
 
-html body {
+/* Theme variables */
+:root {
+    --accent: darkred;
+    --background: #f2f2f2;
+    --foreground: darkred;
+    --navbar-bg: darkred;
+    --navbar-fg: #f2f2f2;
+    --footer-bg: darkred;
+    --footer-fg: #f2f2f2;
+    --table-even-bg: #e2e2e2;
+    --table-odd-bg: #fff;
+    --card-bg: #fff;
+    --card-fg: #222;
+}
+
+:root[data-theme="dark"] {
+    --accent: #ff6f6f;
+    --background: #181818;
+    --foreground: #ffe5e5;
+    --navbar-bg: #222;
+    --navbar-fg: #ff6f6f;
+    --footer-bg: #222;
+    --footer-fg: #ff6f6f;
+    --table-even-bg: #232323;
+    --table-odd-bg: #181818;
+    --card-bg: #232323;
+    --card-fg: #ffe5e5;
+}
+
+body {
     padding: 0 1em 1em;
-    background-color: #f2f2f2;
-    color: darkred;
+    background-color: var(--background);
+    color: var(--foreground);
     font-size: initial;
     font-family: 'Courgette', cursive;
 }
@@ -18,8 +47,8 @@ nav {
     left: 0;
     width: 100%;
     z-index: 5;
-    background: darkred;
-    color: #f2f2f2;
+    background: var(--navbar-bg);
+    color: var(--navbar-fg);
 
     font-size: 1.5rem;
     box-shadow: 0 9px 10px -2px rgba(0, 0, 0, .2);
@@ -31,8 +60,8 @@ footer {
     left: 0;
     width: 100%;
 
-    background: darkred;
-    color: #f2f2f2;
+    background: var(--footer-bg);
+    color: var(--footer-fg);
 }
 
 footer > div {
@@ -51,17 +80,41 @@ footer > div {
 nav > ul {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
     padding: 0 1rem;
+    gap: 1rem;
 }
 
 nav > ul > li > a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: var(--navbar-fg);
 }
 
 nav > ul > li.brand {
     text-transform: uppercase;
+}
+
+nav > ul > li:nth-last-child(2) {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--navbar-fg);
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: color 0.2s;
+}
+
+.theme-toggle svg {
+    display: block;
 }
 
 table {
@@ -73,7 +126,11 @@ ul > li {
 }
 
 tr:nth-child(even) {
-    background-color: #e2e2e2;
+    background-color: var(--table-even-bg);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--table-odd-bg);
 }
 
 div.tour-link {

@@ -6,7 +6,7 @@ export interface IPenalty {
     penalty: string | ReactNode
 }
 
-export const Penalties = ({ accentColor = "darkred" }: { accentColor?: string }) => {
+export const Penalties = () => {
     const penalties: IPenalty[] = [
         {offense: 'Pudel', penalty: formattedCurrency(.25)},
         {offense: 'Glöckchen', penalty: formattedCurrency(.5)},
@@ -41,7 +41,7 @@ export const Penalties = ({ accentColor = "darkred" }: { accentColor?: string })
 
     return (
         <>
-            <h2 style={{ color: accentColor, textAlign: 'center', fontWeight: 700, marginBottom: 20 }}>Strafen</h2>
+            <h2 style={{ color: "var(--accent)", textAlign: 'center', fontWeight: 700, marginBottom: 20 }}>Strafen</h2>
             <table style={{
                 width: '100%',
                 borderCollapse: 'collapse',
@@ -51,7 +51,7 @@ export const Penalties = ({ accentColor = "darkred" }: { accentColor?: string })
                 boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
             }}>
                 <thead>
-                <tr style={{ background: accentColor, color: '#fff' }}>
+                <tr style={{ background: "var(--accent)", color: '#fff' }}>
                     <th style={{ padding: '12px 8px', fontWeight: 600, fontSize: '1rem', border: 'none' }}>Vergehen</th>
                     <th style={{ padding: '12px 8px', fontWeight: 600, fontSize: '1rem', border: 'none' }}>Strafe</th>
                 </tr>
@@ -59,7 +59,7 @@ export const Penalties = ({ accentColor = "darkred" }: { accentColor?: string })
                 <tbody>
                 {penalties.map((p, i) => (
                     <tr key={i} style={{ borderBottom: '1px solid #eee' }}>
-                        <td style={{ padding: '10px 8px', color: accentColor, fontWeight: 500 }}>{p.offense}</td>
+                        <td style={{ padding: '10px 8px', color: "var(--accent)", fontWeight: 500 }}>{p.offense}</td>
                         <td style={{ padding: '10px 8px' }}>{p.penalty}</td>
                     </tr>
                 ))}

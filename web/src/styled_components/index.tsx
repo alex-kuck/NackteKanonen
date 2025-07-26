@@ -35,14 +35,14 @@ export const PlayerGridExpanded = styled.div`
   grid-template-rows: auto;
   justify-items: center;
   
-  background: linear-gradient(-225deg, darkred, black);
+  background: linear-gradient(-225deg, var(--accent), black);
   color: #f2f2f2;
   grid-row: span 3;
   cursor: pointer;
   user-select: none;
   border-radius: 1.5rem;
   padding: .5rem;
-  border: .2rem darkred outset;
+  border: .2rem var(--accent) outset;
 `;
 
 export const PlayerGridCollapsed = styled.div`
@@ -60,8 +60,8 @@ export const PlayerGridCollapsed = styled.div`
   user-select: none;
   border-radius: 1.5rem;
   padding: .5rem;
-  border: .2rem darkred outset;
-  color: darkred;
+  border: .2rem var(--accent) outset;
+  color: var(--accent);
 `;
 
 export const AvatarSmall = styled.img`
@@ -97,5 +97,5 @@ export const Bold = styled.span`
 `;
 
 export const Link = styled.a`
-color: darkred;
+color: var(--accent);
 `;
