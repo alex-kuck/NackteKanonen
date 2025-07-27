@@ -1,4 +1,4 @@
-import {IPlayer, IPlayerResult} from "../models";
+import {IPlayer, IPlayerResult} from "@shared/db";
 import React from "react";
 import {AvatarLarge, AvatarSmall} from "../styled_components";
 import {formattedCurrency, formattedNumber, shouldFlip} from "../utils";

@@ -7,7 +7,7 @@ import {
     IResults,
     ISettingAtTimes,
     ISettings
-} from '../models';
+} from '@shared/db';
 
 export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes): IPlayerResults =>
     Object.entries(results).reduce((acc, [playerKey, resultList]: [string, IResultList]) => ({

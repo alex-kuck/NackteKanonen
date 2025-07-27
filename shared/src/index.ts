@@ -1,1 +1,2 @@
-export * from './lib/shared';
+export * from './lib/firebase';
+export * from './lib/models';

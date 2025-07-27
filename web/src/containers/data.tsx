@@ -1,6 +1,5 @@
+import {IPlayerResults, IPlayers, IResults, ISettingAtTimes, useFirebase} from "@shared/db";
 import React, {ReactNode, useContext, useMemo} from "react";
-import {useFirebase} from "../firebase";
-import {IPlayerResults, IPlayers, IResults, ISettingAtTimes} from "../models";
 import {calculateAll} from "../utils";
 
 interface DataWrapperProps {

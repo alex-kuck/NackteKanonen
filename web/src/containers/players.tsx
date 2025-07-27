@@ -1,12 +1,10 @@
+import {emptyPlayerResult, IPlayerResult} from "@shared/db";
 import React, {useReducer} from "react";
-import {Flipper, Flipped} from "react-flip-toolkit";
-
-import {useDataContext} from "./data";
-import {emptyPlayerResult, IPlayerResult} from "../models";
+import {Flipped, Flipper} from "react-flip-toolkit";
+import {Overview, PlayerCollapsed, PlayerExpanded} from "../components";
 import {PlayerGridCollapsed, PlayerGridExpanded, PlayersGrid} from "../styled_components";
 import {shouldFlip} from "../utils";
-import {PlayerCollapsed, PlayerExpanded} from "../components";
-import {Overview} from "../components";
+import {useDataContext} from "./data";
 
 interface IExpandState {
     expanded: string[];

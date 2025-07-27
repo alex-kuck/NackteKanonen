@@ -1,5 +1,5 @@
 import {calculateAll, formattedCurrency, formattedNumber} from "./index";
-import {IPlayerResult, IResults, ISettingAtTimes} from '../models';
+import {IPlayerResult, IResults, ISettingAtTimes} from '@shared/db';
 
 describe('utils', function () {
     test('calculate results', function () {
