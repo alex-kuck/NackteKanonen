@@ -6,6 +6,9 @@
         "module": "esnext",
         "lib": ["dom", "dom.iterable", "esnext"],
         "skipLibCheck": true,
-        "baseUrl": "."
+        "baseUrl": ".",
+        "paths": {
+            "@shared/db": ["shared/src/index.ts"]
+        }
     }
 }
