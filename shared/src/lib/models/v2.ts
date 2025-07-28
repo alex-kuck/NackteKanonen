@@ -1,6 +1,7 @@
-import {FirebaseKey} from "../firebase/models";
+import { formattedCurrency, formattedDate } from '@shared/formatting';
+import { FirebaseKey } from '../firebase/models';
 
-export type Players = ByPlayerId<Player>
+export type Players = ByPlayerId<Player>;
 export type PlayerId = FirebaseKey;
 
 export interface Player {
@@ -14,7 +15,7 @@ export interface Player {
     amountDeposited: number;
 }
 
-type ByPlayerId<V> = ById<PlayerId, V>
+type ByPlayerId<V> = ById<PlayerId, V>;
 
 type ById<K extends FirebaseKey, V> = {
     [key in K]: V;
@@ -29,9 +30,9 @@ export interface Payment {
 }
 
 type Payments = ById<PaymentId, Payment>;
-export type Deposits = ByPlayerId<Payments>
-export type Withdrawals = ByPlayerId<Payments>
-export type Fees = ByPlayerId<Payments>
+export type Deposits = ByPlayerId<Payments>;
+export type Withdrawals = ByPlayerId<Payments>;
+export type Fees = ByPlayerId<Payments>;
 
 export type MeetingId = FirebaseKey;
 
@@ -41,8 +42,13 @@ export interface Meetings {
 
 export interface Meeting {
     date: number;
-    results: ByPlayerId<PlayerStatistics>
+    results: ByPlayerId<PlayerStatistics>;
 }
+
+export const meeting = (date: number, results: ByPlayerId<PlayerStatistics>): Meeting => ({
+    date,
+    results,
+});
 
 export interface PlayerStatistics {
     bells: number;
@@ -53,16 +59,28 @@ export interface PlayerStatistics {
 }
 
 export interface Settings {
-    bellFee: number,
-    memberFee: number,
-    poodleFee: number
+    bellFee: number;
+    memberFee: number;
+    poodleFee: number;
 }
 
 export type SettingsAtTime = ById<FirebaseKey, { date: number; setting: Settings }>;
 
-export const meetingFee = (date: number, statistics: PlayerStatistics, setting: Settings): Payment => ({
+export const meetingFee = (
+    date: number,
+    statistics: PlayerStatistics,
+    setting: Settings
+): Payment => ({
     date,
-    amount: statistics.fee + (statistics.bells * setting.bellFee) + (statistics.poodles * setting.poodleFee) + (statistics.member ? setting.memberFee : 0),
+    amount:
+        statistics.fee +
+        statistics.bells * setting.bellFee +
+        statistics.poodles * setting.poodleFee +
+        (statistics.member ? setting.memberFee : 0),
     // TODO: Format numbers
-    note: `${statistics.bells} * ${setting.bellFee} + ${statistics.poodles} * ${setting.poodleFee} + ${statistics.member ? setting.memberFee : 0} + ${statistics.fee} Strafe`
-})
+    note: `Kegeln ${formattedDate(new Date(date))}
+    Glöckchen: ${statistics.bells} * ${formattedCurrency(setting.bellFee)}
+    Pudel: ${statistics.poodles} * ${formattedCurrency(setting.poodleFee)}
+    Beitrag: ${formattedCurrency(statistics.member ? setting.memberFee : 0)}
+    Strafe: ${formattedCurrency(statistics.fee)}`,
+});

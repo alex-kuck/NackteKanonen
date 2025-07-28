@@ -10,6 +10,8 @@ export const formattedCurrency = (value: number) => new Intl.NumberFormat('de-DE
     maximumFractionDigits: 2
 }).format(value);
 
-export const formattedDate = (seconds: number) => seconds <= 0 ? 'N/A' : new Date(seconds * 1000).toLocaleDateString('de-DE');
+export const formattedDateFromSeconds = (seconds: number) => seconds <= 0 ? 'N/A' : formattedDate(new Date(seconds * 1000));
+
+export const formattedDate = (date?: Date) => date?.toLocaleDateString('de-DE') ?? 'N/A';
 
 export const withLeadingZeros = (value: number, targetLength: number) => value.toString().padStart(targetLength, '0');

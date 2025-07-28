@@ -1,4 +1,4 @@
-import {formattedCurrency, formattedDate} from "@shared/formatting";
+import {formattedCurrency, formattedDateFromSeconds} from "@shared/formatting";
 import React from "react";
 import {useDataContext} from "../containers";
 import {Bold, Logo, OverviewGrid} from "../styled_components";
@@ -18,7 +18,7 @@ export const Overview = () => {
             <OverviewGrid>
                 <div style={{gridArea: 'info', textAlign: 'center', fontSize: 'x-large'}}>
                     <span>
-                            Kassenstand: <Bold>{formattedCurrency(info.total)}</Bold> (vom {formattedDate(info.updatedAt)})
+                            Kassenstand: <Bold>{formattedCurrency(info.total)}</Bold> (vom {formattedDateFromSeconds(info.updatedAt)})
                     </span><br/>
                     <span>Mit ausstehenden Zahlungen: <Bold>{formattedCurrency(info.theoretical)}</Bold></span>
                 </div>

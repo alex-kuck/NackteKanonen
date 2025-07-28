@@ -1,14 +1,17 @@
-import { db } from './firebase';
-import { ref, onValue } from 'firebase/database';
-import { useEffect, useState } from "react";
+import {onValue, push, ref} from 'firebase/database';
+import {useEffect, useState} from "react";
 import {
     emptyPlayers,
-    emptyResults, emptySettings, emptySettingsAtTime,
+    emptyResults,
+    emptySettings,
+    emptySettingsAtTime,
     IPlayers,
     IResults,
     ISettingAtTimes,
     ISettings
 } from "../models";
+import {Payment, PlayerId} from "../models/v2";
+import {db} from './firebase';
 
 export interface IFirebaseData {
     players: IPlayers,
@@ -18,10 +21,10 @@ export interface IFirebaseData {
 }
 
 export function useFirebase(): (IFirebaseData) {
-    const [ players, setPlayers ] = useState<IPlayers>(emptyPlayers);
-    const [ results, setResults ] = useState<IResults>(emptyResults);
-    const [ settings, setSettings ] = useState<ISettings>(emptySettings);
-    const [ settingsAtTime, setSettingsAtTime ] = useState<ISettingAtTimes>(emptySettingsAtTime);
+    const [players, setPlayers] = useState<IPlayers>(emptyPlayers);
+    const [results, setResults] = useState<IResults>(emptyResults);
+    const [settings, setSettings] = useState<ISettings>(emptySettings);
+    const [settingsAtTime, setSettingsAtTime] = useState<ISettingAtTimes>(emptySettingsAtTime);
 
     const getPlayers = () => {
         const playersRef = ref(db, 'players');
@@ -70,5 +73,25 @@ export function useFirebase(): (IFirebaseData) {
         getSettingsAtTime();
     }, []);
 
-    return { players, results, settings, settingsAtTime };
+    return {players, results, settings, settingsAtTime};
+}
+
+export const addFee = async (playerId: PlayerId, payment: Payment) => {
+    const result = await createPayment('fees', playerId, payment);
+    return result!.key
+}
+
+const createPayment = async (type: 'deposits' | 'fees' | 'withdrawals', playerId: PlayerId, payment: Payment) => {
+    const playerDepositRef = ref(db, `${type}/${playerId}`);
+    return push(playerDepositRef, payment).catch(err => console.error(`Could not create ${type} ${payment} for ${playerId}`));
+}
+
+export const addDeposit = async (playerId: PlayerId, payment: Payment) => {
+    const result = await createPayment('deposits', playerId, payment);
+    return result!.key
+}
+
+export const addWithdrawal = async (playerId: PlayerId, payment: Payment) => {
+    const result = await createPayment('withdrawals', playerId, payment);
+    return result!.key
 }
