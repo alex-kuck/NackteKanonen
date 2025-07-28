@@ -19,6 +19,7 @@
     },
     "scripts": {
         "start": "nx serve web",
+        "start:admin": "nx serve admin",
         "build": "nx build web",
         "fb:deploy": "yarn build && firebase deploy --only hosting,database",
         "storybook": "start-storybook -p 9001 -c .storybook",
