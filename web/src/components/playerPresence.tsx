@@ -1,5 +1,5 @@
+import {formattedNumber} from "@shared/formatting";
 import React from "react";
-import { formattedNumber } from "../utils";
 
 interface PlayerPresenceProps {
     totalPresent: number;

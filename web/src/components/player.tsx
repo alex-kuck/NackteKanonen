@@ -1,8 +1,9 @@
 import {IPlayer, IPlayerResult} from "@shared/db";
+import {formattedCurrency, formattedNumber} from "@shared/formatting";
 import React from "react";
-import {AvatarLarge, AvatarSmall} from "../styled_components";
-import {formattedCurrency, formattedNumber, shouldFlip} from "../utils";
 import {Flipped} from "react-flip-toolkit";
+import {AvatarLarge, AvatarSmall} from "../styled_components";
+import {shouldFlip} from "../utils";
 import {PlayerPresence} from "./playerPresence";
 
 export interface IPlayerProps {

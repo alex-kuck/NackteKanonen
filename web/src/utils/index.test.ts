@@ -1,5 +1,5 @@
-import {calculateAll, formattedCurrency, formattedNumber} from "./index";
 import {IPlayerResult, IResults, ISettingAtTimes} from '@shared/db';
+import {calculateAll} from "./index";
 
 describe('utils', function () {
     test('calculate results', function () {
@@ -69,19 +69,5 @@ describe('utils', function () {
         };
 
         expect(calculateAll(results, settings)).toEqual(expected);
-    });
-
-    test('formatted currency', function () {
-        const values = [0.5, 10.2, -10.333];
-        const expected = ['0,50 €', '10,20 €', '-10,33 €'];
-
-        values.forEach((value, index) => expect(formattedCurrency(value)).toEqual(expected[index]));
-    });
-
-    test('formatted number', function () {
-        const values = [0.5, 10.2, -10.333];
-        const expected = ['0,50', '10,20', '-10,33'];
-
-        values.forEach((value, index) => expect(formattedNumber(value)).toEqual(expected[index]));
     });
 });

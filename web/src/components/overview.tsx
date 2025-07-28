@@ -1,7 +1,7 @@
+import {formattedCurrency, formattedDate} from "@shared/formatting";
 import React from "react";
 import {useDataContext} from "../containers";
 import {Bold, Logo, OverviewGrid} from "../styled_components";
-import {formattedCurrency, formattedDate} from "../utils";
 
 export const Overview = () => {
     const {playerResults} = useDataContext();

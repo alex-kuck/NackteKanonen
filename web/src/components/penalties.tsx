@@ -1,5 +1,5 @@
+import { formattedCurrency } from "@shared/formatting";
 import React, {ReactNode} from "react";
-import {formattedCurrency} from "../utils";
 
 export interface IPenalty {
     offense: string,

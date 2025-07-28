@@ -8,7 +8,8 @@
         "skipLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@shared/db": ["shared/src/index.ts"]
+            "@shared/db": ["shared/src/index.ts"],
+            "@shared/formatting": ["formatting/src/index.ts"]
         }
     }
 }

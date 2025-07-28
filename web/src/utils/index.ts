@@ -1,4 +1,3 @@
-import {useEffect, useRef, useState} from "react";
 import {
     emptyPlayerResult,
     emptySettings,
@@ -8,6 +7,8 @@ import {
     ISettingAtTimes,
     ISettings
 } from '@shared/db';
+import {withLeadingZeros} from '@shared/formatting';
+import {useEffect, useRef, useState} from "react";
 
 export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes): IPlayerResults =>
     Object.entries(results).reduce((acc, [playerKey, resultList]: [string, IResultList]) => ({
@@ -31,20 +32,6 @@ export const calculateAll = (results: IResults, settingsAtTimes: ISettingAtTimes
             };
         }, emptyPlayerResult)
     }), {});
-
-export const formattedNumber = (value: number) => new Intl.NumberFormat('de-DE', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-}).format(value);
-
-export const formattedCurrency = (value: number) => new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-}).format(value);
-
-export const formattedDate = (seconds: number) => seconds <= 0 ? 'N/A' : new Date(seconds * 1000).toLocaleDateString('de-DE');
 
 export const shouldFlip = (playerKey: string) => (_prev: string, current: string) => playerKey === current;
 
@@ -71,5 +58,3 @@ export function useCountdown(targetDateInMillisUTC: number): string {
 
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
-
-export const withLeadingZeros = (value: number, targetLength: number) => value.toString().padStart(targetLength, '0');
