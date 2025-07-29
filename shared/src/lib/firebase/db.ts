@@ -1,4 +1,4 @@
-import { onValue, push, ref } from 'firebase/database';
+import { onValue, push, ref, runTransaction } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import {
     emptyPlayers,
@@ -111,6 +111,12 @@ export function useFirebase() {
 
 export const addFee = async (playerId: v2.PlayerId, payment: v2.Payment) => {
     const result = await createPayment('fees', playerId, payment);
+    await runTransaction(playerRef(playerId), (player?: v2.Player) => {
+        if (player) {
+            player.totalDue += payment.amount;
+        }
+        return player;
+    });
     return result!.key;
 };
 
@@ -127,10 +133,30 @@ const createPayment = async (
 
 export const addDeposit = async (playerId: v2.PlayerId, payment: v2.Payment) => {
     const result = await createPayment('deposits', playerId, payment);
+    await runTransaction(playerRef(playerId), (player?: v2.Player) => {
+        if (player) {
+            player.totalPaid += payment.amount;
+        }
+        return player;
+    });
     return result!.key;
 };
 
 export const addWithdrawal = async (playerId: v2.PlayerId, payment: v2.Payment) => {
     const result = await createPayment('withdrawals', playerId, payment);
+    await runTransaction(playerRef(playerId), (player?: v2.Player) => {
+        if (player) {
+            player.totalPaid -= payment.amount;
+        }
+        return player;
+    });
     return result!.key;
+};
+
+const playerRef = (playerId: v2.PlayerId) => ref(db, `players/${playerId}`);
+
+export const addMeeting = async (meeting: v2.Meeting) => {
+    const meetingsRef = ref(db, 'meetings');
+    const newMeetingRef = await push(meetingsRef, meeting);
+    return newMeetingRef.key;
 };

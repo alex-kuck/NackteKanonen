@@ -67,6 +67,13 @@ body {
     margin: 0 auto;
 }
 
+.admin-main-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+}
+
 .admin-card {
     background: var(--card-bg);
     color: var(--card-fg);
@@ -74,4 +81,116 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     padding: 2rem;
     margin-bottom: 2rem;
+}
+
+.admin-card-full {
+    background: var(--card-bg);
+    color: var(--card-fg);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    padding: 2.5rem 2rem;
+    margin: 2rem 0;
+    width: 100%;
+    max-width: 900px;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.player-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.styled-input {
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 0.4em 0.8em;
+    font-size: 1em;
+    background: var(--card-bg);
+    color: var(--card-fg);
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    width: 5em;
+}
+
+.styled-input:focus {
+    border: 2px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+.styled-checkbox {
+    width: 1.2em;
+    height: 1.2em;
+    accent-color: var(--accent);
+    border-radius: 4px;
+    border: 1px solid var(--accent);
+    background: var(--card-bg);
+    transition: box-shadow 0.2s;
+}
+
+.meeting-table th, .meeting-table td {
+    text-align: center;
+}
+
+.meeting-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.3em;
+}
+
+.meeting-table tr {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.meeting-table th {
+    background: none;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.submit-btn {
+    background: var(--accent);
+    color: var(--background);
+    border: none;
+    border-radius: 6px;
+    padding: 0.9em 2.6em;
+    font-size: 1.15em;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    z-index: 10;
+    margin: 2.5rem 0 0 auto;
+    display: block;
+}
+
+.submit-btn:hover, .submit-btn:focus {
+    background: var(--navbar-bg);
+    color: var(--accent);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    outline: 2px solid var(--accent);
+}
+
+:root[data-theme="dark"] .submit-btn {
+    color: var(--foreground);
+    background: var(--accent);
+}
+
+:root[data-theme="dark"] .submit-btn:hover, :root[data-theme="dark"] .submit-btn:focus {
+    background: var(--navbar-bg);
+    color: var(--accent);
 }

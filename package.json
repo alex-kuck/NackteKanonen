@@ -5,6 +5,7 @@
     "dependencies": {
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
+        "@tanstack/react-form": "^1.15.0",
         "@types/jest": "30.0.0",
         "@types/node": "24.1.0",
         "@types/react": "19.1.8",

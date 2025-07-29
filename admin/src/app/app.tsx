@@ -8,7 +8,7 @@ import { ManageSettingsPage } from './pages/manage-settings';
 import { ThemeProvider, ThemeToggleButton } from './theme';
 
 const navigation = [
-    { to: '/create-meeting', label: 'Create Meeting' },
+    { to: '/create-meeting', label: 'Neues Kegeln' },
     { to: '/add-fee', label: 'Add Fee' },
     { to: '/add-withdrawal', label: 'Add Withdrawal' },
     { to: '/manage-settings', label: 'Manage Settings' },
