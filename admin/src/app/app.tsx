@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import styles from './app.module.css';
+import { ThemeProvider, ThemeToggleButton } from './theme';
 
 export function App() {
     return (
-        <>
+        <ThemeProvider>
             <nav className={styles['admin-navbar']}>
                 <NavLink
                     to="/create-meeting"
@@ -30,6 +31,7 @@ export function App() {
                 >
                     Manage Settings
                 </NavLink>
+                <ThemeToggleButton />
             </nav>
             <main className={styles['admin-main']}>
                 <Routes>
@@ -40,7 +42,7 @@ export function App() {
                     <Route path="*" element={<CreateMeetingPage />} />
                 </Routes>
             </main>
-        </>
+        </ThemeProvider>
     );
 }
 

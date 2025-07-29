@@ -10,6 +10,16 @@
     --card-fg: #222;
 }
 
+:root[data-theme="dark"] {
+    --accent: #ff6f6f;
+    --background: #181818;
+    --foreground: #ffe5e5;
+    --navbar-bg: #222;
+    --navbar-fg: #ff6f6f;
+    --card-bg: #232323;
+    --card-fg: #ffe5e5;
+}
+
 body {
     background-color: var(--background);
     color: var(--foreground);
