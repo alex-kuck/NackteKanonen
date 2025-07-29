@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './theme-toggle.module.css';
 import { useTheme } from './ThemeProvider';
 
 function SunIcon() {
@@ -50,8 +51,8 @@ export function ThemeToggleButton() {
         <button
             type="button"
             aria-label="Toggle dark mode"
+            className={styles['theme-toggle-btn']}
             onClick={() => setTheme(isDark ? 'light' : 'dark')}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', marginLeft: 'auto' }}
         >
             {isDark ? <SunIcon /> : <MoonIcon />}
         </button>
