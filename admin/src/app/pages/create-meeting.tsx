@@ -1,24 +1,19 @@
 import { addFee, addMeeting, useFirebase, v2 } from '@shared/db';
 import { useForm } from '@tanstack/react-form';
-import { entries, fromPairs, isEmpty, pick } from 'lodash';
+import { fromPairs, isEmpty, pick } from 'lodash';
 import React from 'react';
 import styles from '../app.module.css';
-
-type PlayerWithId = v2.Player & { id: v2.PlayerId };
-type PlayersWithIds = PlayerWithId[];
+import { PlayersWithIds, playersWithIds } from './players-with-ids';
 
 export function CreateMeetingPage() {
     const { players, settings } = useFirebase();
-    const playersWithIds: PlayersWithIds = entries(players).map(
-        ([id, player]) => ({ id, ...player } as const)
-    );
 
     return (
         <div className={styles['admin-main-centered']}>
             <div className={styles['admin-card-full']}>
                 <h2 style={{ textAlign: 'center' }}>Neues Kegeln eintragen</h2>
-                {!isEmpty(playersWithIds) && (
-                    <CreateMeetingForm players={playersWithIds} settings={settings} />
+                {!isEmpty(players) && !isEmpty(settings) && (
+                    <CreateMeetingForm players={playersWithIds(players)} settings={settings} />
                 )}
             </div>
         </div>

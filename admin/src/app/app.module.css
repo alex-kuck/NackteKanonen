@@ -185,6 +185,13 @@ body {
     outline: 2px solid var(--accent);
 }
 
+.submit-btn:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    background: #cccccc;
+    color: #888888;
+}
+
 :root[data-theme="dark"] .submit-btn {
     color: var(--foreground);
     background: var(--accent);

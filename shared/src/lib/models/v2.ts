@@ -39,6 +39,12 @@ export type Deposits = ByPlayerId<Payments>;
 export type Withdrawals = ByPlayerId<Payments>;
 export type Fees = ByPlayerId<Payments>;
 
+export const payment = (date: number, amount: number, note?: string): Payment => ({
+    date,
+    note,
+    amount,
+});
+
 export type MeetingId = FirebaseKey;
 
 export interface Meetings {

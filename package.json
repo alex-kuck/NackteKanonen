@@ -17,7 +17,8 @@
         "react-dom": "^19.1.0",
         "react-flip-toolkit": "^7.2.4",
         "react-router-dom": "^7.7.1",
-        "typescript": "5.8.3"
+        "typescript": "5.8.3",
+        "zod": "^4.0.13"
     },
     "scripts": {
         "start": "nx serve web",
