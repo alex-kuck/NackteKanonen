@@ -1,1 +1,58 @@
-/* Your styles goes here. */
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+:root {
+    --accent: darkred;
+    --background: #f2f2f2;
+    --foreground: darkred;
+    --navbar-bg: darkred;
+    --navbar-fg: #f2f2f2;
+    --card-bg: #fff;
+    --card-fg: #222;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Courgette', cursive;
+    margin: 0;
+}
+
+.admin-navbar {
+    background: var(--navbar-bg);
+    color: var(--navbar-fg);
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.admin-navbar a {
+    color: var(--navbar-fg);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.admin-navbar a.active {
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+.admin-main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.admin-card {
+    background: var(--card-bg);
+    color: var(--card-fg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}

@@ -92,3 +92,5 @@ export const meetingFee = (
 
 export const balance = (player: Pick<Player, 'totalDue' | 'totalPaid'>) =>
     player.totalPaid - player.totalDue;
+
+export const clubKasseKey = 'club';
