@@ -1,5 +1,9 @@
 // Uncomment this line to use CSS modules
-import { migrateMeetings, migratePayments } from '../../../shared/src/lib/models/migrations/v1v2';
+import {
+    migrateKasseKey,
+    migrateMeetings,
+    migratePayments,
+} from '../../../shared/src/lib/models/migrations/v1v2';
 
 // import styles from './app.module.css';
 
@@ -12,6 +16,10 @@ export function App() {
 
             <button onClick={() => migrateMeetings()} type="button">
                 Create Meetings from Player Results
+            </button>
+
+            <button onClick={() => migrateKasseKey()} type="button">
+                Migrate Kasse key
             </button>
         </div>
     );

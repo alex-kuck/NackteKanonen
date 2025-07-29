@@ -1,10 +1,9 @@
-import {emptyPlayerResult, IPlayerResult} from "@shared/db";
-import React, {useReducer} from "react";
-import {Flipped, Flipper} from "react-flip-toolkit";
-import {Overview, PlayerCollapsed, PlayerExpanded} from "../components";
-import {PlayerGridCollapsed, PlayerGridExpanded, PlayersGrid} from "../styled_components";
-import {shouldFlip} from "../utils";
-import {useDataContext} from "./data";
+import React, { useReducer } from 'react';
+import { Flipped, Flipper } from 'react-flip-toolkit';
+import { Overview, PlayerCollapsed, PlayerExpanded } from '../components';
+import { PlayerGridCollapsed, PlayerGridExpanded, PlayersGrid } from '../styled_components';
+import { shouldFlip } from '../utils';
+import { useDataContext } from './data';
 
 interface IExpandState {
     expanded: string[];
@@ -18,12 +17,12 @@ interface IAction {
 
 function reducer(state: IExpandState, action: IAction) {
     switch (action.type) {
-        case "TOGGLE":
+        case 'TOGGLE':
             return {
                 expanded: state.expanded.includes(action.payload)
-                    ? state.expanded.filter(key => key !== action.payload)
+                    ? state.expanded.filter((key) => key !== action.payload)
                     : [...state.expanded, action.payload],
-                last: action.payload
+                last: action.payload,
             };
         default:
             return state;
@@ -31,61 +30,49 @@ function reducer(state: IExpandState, action: IAction) {
 }
 
 export const PlayersContainer = () => {
-    const {players, playerResults} = useDataContext();
+    const { players, meetings } = useDataContext();
 
     const [state, dispatch] = useReducer(reducer, {
-        expanded: []
+        expanded: [],
     } as IExpandState);
-    const {expanded, last} = state;
+    const { expanded, last } = state;
 
-    const isExpanded = (playerKey: string): boolean =>
-        expanded.includes(playerKey);
-    const togglePlayer = (playerKey: string) =>
-        dispatch({type: "TOGGLE", payload: playerKey});
-
-    const resultFor = (playerKey: string): IPlayerResult =>
-        playerResults[playerKey] || emptyPlayerResult;
-    const kasseKey = "-Ka3tbKzyn3IUfa-kYvP";
+    const isExpanded = (playerKey: string): boolean => expanded.includes(playerKey);
+    const togglePlayer = (playerKey: string) => dispatch({ type: 'TOGGLE', payload: playerKey });
 
     return (
         <>
-            <Overview/>
+            <Overview />
             <h1>Mitglieder</h1>
-            <Flipper
-                decisionData={last}
-                spring={"stiff"}
-                flipKey={expanded.toString()}
-            >
+            <Flipper decisionData={last} spring={'stiff'} flipKey={expanded.toString()}>
                 <PlayersGrid>
-                    {Object.keys(players)
-                        .filter(key => key !== kasseKey)
-                        .map(key =>
-                            isExpanded(key) ? (
-                                <Flipped
-                                    shouldFlip={shouldFlip(key)}
-                                    flipId={`playerGrid-${key}`}
-                                    key={key}
-                                >
-                                    <PlayerGridExpanded onClick={() => togglePlayer(key)}>
-                                        <PlayerExpanded
-                                            player={players[key]}
-                                            result={resultFor(key)}
-                                            playerKey={key}
-                                        />
-                                    </PlayerGridExpanded>
-                                </Flipped>
-                            ) : (
-                                <Flipped flipId={`playerGrid-${key}`} key={key}>
-                                    <PlayerGridCollapsed onClick={() => togglePlayer(key)}>
-                                        <PlayerCollapsed
-                                            player={players[key]}
-                                            playerKey={key}
-                                            result={resultFor(key)}
-                                        />
-                                    </PlayerGridCollapsed>
-                                </Flipped>
-                            )
-                        )}
+                    {Object.keys(players).map((key) =>
+                        isExpanded(key) ? (
+                            <Flipped
+                                shouldFlip={shouldFlip(key)}
+                                flipId={`playerGrid-${key}`}
+                                key={key}
+                            >
+                                <PlayerGridExpanded onClick={() => togglePlayer(key)}>
+                                    <PlayerExpanded
+                                        player={players[key]}
+                                        meetings={meetings}
+                                        playerKey={key}
+                                    />
+                                </PlayerGridExpanded>
+                            </Flipped>
+                        ) : (
+                            <Flipped flipId={`playerGrid-${key}`} key={key}>
+                                <PlayerGridCollapsed onClick={() => togglePlayer(key)}>
+                                    <PlayerCollapsed
+                                        player={players[key]}
+                                        playerKey={key}
+                                        meetings={meetings}
+                                    />
+                                </PlayerGridCollapsed>
+                            </Flipped>
+                        )
+                    )}
                 </PlayersGrid>
             </Flipper>
         </>

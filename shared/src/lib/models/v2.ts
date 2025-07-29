@@ -8,11 +8,16 @@ export interface Player {
     name: string;
     firstname: string;
     nickname: string;
-
-    // NEW
-    activeMember: boolean;
-    amountDue: number;
-    amountDeposited: number;
+    email: string;
+    member: boolean;
+    present: boolean;
+    bells: number;
+    deposit: number;
+    fee: number;
+    poodles: number;
+    localURL: string;
+    totalDue: number;
+    totalPaid: number;
 }
 
 type ByPlayerId<V> = ById<PlayerId, V>;
@@ -29,7 +34,7 @@ export interface Payment {
     note?: string;
 }
 
-type Payments = ById<PaymentId, Payment>;
+export type Payments = ById<PaymentId, Payment>;
 export type Deposits = ByPlayerId<Payments>;
 export type Withdrawals = ByPlayerId<Payments>;
 export type Fees = ByPlayerId<Payments>;
@@ -84,3 +89,6 @@ export const meetingFee = (
     Beitrag: ${formattedCurrency(statistics.member ? setting.memberFee : 0)}
     Strafe: ${formattedCurrency(statistics.fee)}`,
 });
+
+export const balance = (player: Pick<Player, 'totalDue' | 'totalPaid'>) =>
+    player.totalPaid - player.totalDue;

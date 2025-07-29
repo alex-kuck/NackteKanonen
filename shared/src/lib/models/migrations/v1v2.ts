@@ -1,4 +1,4 @@
-import { DatabaseReference, get, push, ref, update } from 'firebase/database';
+import { DatabaseReference, get, push, ref, remove, set, update } from 'firebase/database';
 import { entries, groupBy, isNil, negate, values } from 'lodash';
 import { db } from '../../firebase/firebase';
 import { IResult, IResults, ISettingAtTimes, ISettings } from '../v1';
@@ -164,4 +164,29 @@ const createMeeting = (date: string, results: PlayerResults) => {
     });
 
     return meeting(Number(date) * 1000, playerStatistics);
+};
+
+export const migrateKasseKey = async () => {
+    console.log(`Migrate Kasse key`);
+    const playerRef = ref(db, 'players/-Ka3tbKzyn3IUfa-kYvP');
+    const kassePlayer = await get(playerRef);
+    if (!kassePlayer.exists()) {
+        console.error('Kasse player not found.');
+    }
+
+    const kassePlayerData = kassePlayer.val();
+    console.log('Updating Kasse player data with new key');
+    await set(ref(db, 'players/club'), kassePlayerData).catch(updateFailed);
+    await remove(playerRef);
+
+    const resultRef = ref(db, 'results/-Ka3tbKzyn3IUfa-kYvP');
+    const kasseResults = await get(resultRef);
+    if (!kasseResults.exists()) {
+        console.error('Kasse results not found.');
+    }
+
+    const kasseResultData = kasseResults.val();
+    console.log('Updating Kasse results data with new key');
+    await set(ref(db, 'results/club'), kasseResultData).catch(updateFailed);
+    await remove(resultRef);
 };

@@ -1,83 +1,85 @@
+import { Players } from './v2';
+
 export interface IPlayerResults {
-    [key: string]: IPlayerResult
+    [key: string]: IPlayerResult;
 }
 
 export interface IPlayerResult {
-    absentMember: number,
-    absentGuest: number,
-    bells: number,
-    bellFee: number,
-    deposit: number,
-    fee: number,
-    guestFee: number,
-    memberFee: number,
-    poodles: number,
-    poodleFee: number,
-    presentMember: number,
-    presentGuest: number,
-    date: number,
+    absentMember: number;
+    absentGuest: number;
+    bells: number;
+    bellFee: number;
+    deposit: number;
+    fee: number;
+    guestFee: number;
+    memberFee: number;
+    poodles: number;
+    poodleFee: number;
+    presentMember: number;
+    presentGuest: number;
+    date: number;
 }
 
 export interface IPlayers {
-    [key: string]: IPlayer
+    [key: string]: IPlayer;
 }
 
 export interface IPlayer {
-    name: string,
-    firstname: string,
-    nickname: string,
-    email: string,
-    member: boolean,
-    present: boolean,
-    bells: number,
-    deposit: number,
-    fee: number,
-    poodles: number,
-    localURL: string,
+    name: string;
+    firstname: string;
+    nickname: string;
+    email: string;
+    member: boolean;
+    present: boolean;
+    bells: number;
+    deposit: number;
+    fee: number;
+    poodles: number;
+    localURL: string;
 }
 
 export interface IResults {
-    [key: string]: IResultList
+    [key: string]: IResultList;
 }
 
 export interface IResultList {
-    [key: string]: IResult
+    [key: string]: IResult;
 }
 
 export interface IResult {
-    bell: number,
-    date: number,
-    deposit: number,
-    fee: number,
-    member: boolean,
-    poodle: number,
-    present: boolean,
-    setting: string
+    bell: number;
+    date: number;
+    deposit: number;
+    fee: number;
+    member: boolean;
+    poodle: number;
+    present: boolean;
+    setting: string;
 }
 
 export interface ISettings {
-    bellFee: number,
-    guestFee: number,
-    memberFee: number,
-    poodleFee: number
+    bellFee: number;
+    guestFee: number;
+    memberFee: number;
+    poodleFee: number;
 }
 
 export interface ISettingAtTimes {
-    [key: string]: ISettingAtTime
+    [key: string]: ISettingAtTime;
 }
 
 export interface ISettingAtTime {
-    date: number,
-    setting: ISettings
+    date: number;
+    setting: ISettings;
 }
 
-export const emptyPlayers: IPlayers = {};
+export const emptyPlayers: Players = {};
 export const emptyResults: IResults = {};
 export const emptySettings: ISettings = {
-    bellFee: .5,
+    bellFee: 0.5,
     guestFee: 0,
     memberFee: 10,
-    poodleFee: .25
+    poodleFee: 0.25,
 };
 export const emptySettingsAtTime: ISettingAtTimes = {};
 export const emptyPlayerResult: IPlayerResult = {

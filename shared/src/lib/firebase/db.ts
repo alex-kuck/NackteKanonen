@@ -1,54 +1,37 @@
-import {onValue, push, ref} from 'firebase/database';
-import {useEffect, useState} from "react";
+import { onValue, push, ref } from 'firebase/database';
+import { useEffect, useState } from 'react';
 import {
     emptyPlayers,
-    emptyResults,
     emptySettings,
     emptySettingsAtTime,
-    IPlayers,
-    IResults,
     ISettingAtTimes,
-    ISettings
-} from "../models";
-import {Payment, PlayerId} from "../models/v2";
-import {db} from './firebase';
+    ISettings,
+    v2,
+} from '../models';
+import { db } from './firebase';
 
-export interface IFirebaseData {
-    players: IPlayers,
-    results: IResults,
-    settings: ISettings,
-    settingsAtTime: ISettingAtTimes
-}
-
-export function useFirebase(): (IFirebaseData) {
-    const [players, setPlayers] = useState<IPlayers>(emptyPlayers);
-    const [results, setResults] = useState<IResults>(emptyResults);
+export function useFirebase() {
+    const [players, setPlayers] = useState<v2.Players>(emptyPlayers);
     const [settings, setSettings] = useState<ISettings>(emptySettings);
     const [settingsAtTime, setSettingsAtTime] = useState<ISettingAtTimes>(emptySettingsAtTime);
+    const [deposits, setDeposits] = useState<v2.Deposits>({});
+    const [fees, setFees] = useState<v2.Fees>({});
+    const [meetings, setMeetings] = useState<v2.Meetings>({});
+    const [withdrawals, setWithdrawals] = useState<v2.Withdrawals>({});
 
     const getPlayers = () => {
         const playersRef = ref(db, 'players');
-        onValue(playersRef, snapshot => {
+        onValue(playersRef, (snapshot) => {
             if (snapshot.exists()) {
-                const players: IPlayers = snapshot.val();
+                const players: v2.Players = snapshot.val();
                 setPlayers(players);
-            }
-        });
-    };
-
-    const getResults = () => {
-        const resultsRef = ref(db, 'results');
-        onValue(resultsRef, snapshot => {
-            if (snapshot.exists()) {
-                const results: IResults = snapshot.val();
-                setResults(results);
             }
         });
     };
 
     const getSettings = () => {
         const settingsRef = ref(db, 'settings');
-        onValue(settingsRef, snapshot => {
+        onValue(settingsRef, (snapshot) => {
             if (snapshot.exists()) {
                 const settings: ISettings = snapshot.val();
                 setSettings(settings);
@@ -58,7 +41,7 @@ export function useFirebase(): (IFirebaseData) {
 
     const getSettingsAtTime = () => {
         const settingsAtTimeRef = ref(db, 'settingsAtTime');
-        onValue(settingsAtTimeRef, snapshot => {
+        onValue(settingsAtTimeRef, (snapshot) => {
             if (snapshot.exists()) {
                 const settingsAtTime: ISettingAtTimes = snapshot.val();
                 setSettingsAtTime(settingsAtTime);
@@ -66,32 +49,88 @@ export function useFirebase(): (IFirebaseData) {
         });
     };
 
+    const getDeposits = () => {
+        const reference = ref(db, 'deposits');
+        return onValue(reference, (snapshot) => {
+            if (snapshot.exists()) {
+                const data: v2.Deposits = snapshot.val();
+                setDeposits(data);
+            }
+        });
+    };
+
+    const getFees = () => {
+        const feesRef = ref(db, 'fees');
+        return onValue(feesRef, (snapshot) => {
+            if (snapshot.exists()) {
+                const data: v2.Fees = snapshot.val();
+                setFees(data);
+            }
+        });
+    };
+
+    const getMeetings = () => {
+        const reference = ref(db, 'meetings');
+        return onValue(reference, (snapshot) => {
+            if (snapshot.exists()) {
+                const data: v2.Meetings = snapshot.val();
+                setMeetings(data);
+            }
+        });
+    };
+
+    const getWithdrawals = () => {
+        const withdrawalsRef = ref(db, 'withdrawals');
+        return onValue(withdrawalsRef, (snapshot) => {
+            if (snapshot.exists()) {
+                const withdrawals: v2.Withdrawals = snapshot.val();
+                setWithdrawals(withdrawals);
+            }
+        });
+    };
+
     useEffect(() => {
         getPlayers();
-        getResults();
         getSettings();
         getSettingsAtTime();
+        const depositsUnsubscribe = getDeposits();
+        const feesUnsubscribe = getFees();
+        const meetingsUnsubscribe = getMeetings();
+        const withdrawalsUnsubscribe = getWithdrawals();
+
+        return () => {
+            depositsUnsubscribe();
+            feesUnsubscribe();
+            meetingsUnsubscribe();
+            withdrawalsUnsubscribe();
+        };
     }, []);
 
-    return {players, results, settings, settingsAtTime};
+    return { players, settings, settingsAtTime, withdrawals, fees, deposits, meetings };
 }
 
-export const addFee = async (playerId: PlayerId, payment: Payment) => {
+export const addFee = async (playerId: v2.PlayerId, payment: v2.Payment) => {
     const result = await createPayment('fees', playerId, payment);
-    return result!.key
-}
+    return result!.key;
+};
 
-const createPayment = async (type: 'deposits' | 'fees' | 'withdrawals', playerId: PlayerId, payment: Payment) => {
+const createPayment = async (
+    type: 'deposits' | 'fees' | 'withdrawals',
+    playerId: v2.PlayerId,
+    payment: v2.Payment
+) => {
     const playerDepositRef = ref(db, `${type}/${playerId}`);
-    return push(playerDepositRef, payment).catch(err => console.error(`Could not create ${type} ${payment} for ${playerId}`));
-}
+    return push(playerDepositRef, payment).catch((err) =>
+        console.error(`Could not create ${type} ${payment} for ${playerId}`)
+    );
+};
 
-export const addDeposit = async (playerId: PlayerId, payment: Payment) => {
+export const addDeposit = async (playerId: v2.PlayerId, payment: v2.Payment) => {
     const result = await createPayment('deposits', playerId, payment);
-    return result!.key
-}
+    return result!.key;
+};
 
-export const addWithdrawal = async (playerId: PlayerId, payment: Payment) => {
+export const addWithdrawal = async (playerId: v2.PlayerId, payment: v2.Payment) => {
     const result = await createPayment('withdrawals', playerId, payment);
-    return result!.key
-}
+    return result!.key;
+};
