@@ -1,36 +1,32 @@
 import React from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import styles from './app.module.css';
+import { AddFeePage } from './pages/add-fee';
+import { AddWithdrawalPage } from './pages/add-withdrawal';
+import { CreateMeetingPage } from './pages/create-meeting';
+import { ManageSettingsPage } from './pages/manage-settings';
 import { ThemeProvider, ThemeToggleButton } from './theme';
+
+const navigation = [
+    { to: '/create-meeting', label: 'Create Meeting' },
+    { to: '/add-fee', label: 'Add Fee' },
+    { to: '/add-withdrawal', label: 'Add Withdrawal' },
+    { to: '/manage-settings', label: 'Manage Settings' },
+];
 
 export function App() {
     return (
         <ThemeProvider>
             <nav className={styles['admin-navbar']}>
-                <NavLink
-                    to="/create-meeting"
-                    className={({ isActive }) => (isActive ? styles.active : undefined)}
-                >
-                    Create Meeting
-                </NavLink>
-                <NavLink
-                    to="/add-fee"
-                    className={({ isActive }) => (isActive ? styles.active : undefined)}
-                >
-                    Add Fee
-                </NavLink>
-                <NavLink
-                    to="/add-withdrawal"
-                    className={({ isActive }) => (isActive ? styles.active : undefined)}
-                >
-                    Add Withdrawal
-                </NavLink>
-                <NavLink
-                    to="/manage-settings"
-                    className={({ isActive }) => (isActive ? styles.active : undefined)}
-                >
-                    Manage Settings
-                </NavLink>
+                {navigation.map(({ to, label }) => (
+                    <NavLink
+                        key={to}
+                        to={to}
+                        className={({ isActive }) => (isActive ? styles.active : undefined)}
+                    >
+                        {label}
+                    </NavLink>
+                ))}
                 <ThemeToggleButton />
             </nav>
             <main className={styles['admin-main']}>
@@ -44,20 +40,4 @@ export function App() {
             </main>
         </ThemeProvider>
     );
-}
-
-function CreateMeetingPage() {
-    return <div className={styles['admin-card']}>Create New Meeting (Page)</div>;
-}
-
-function AddFeePage() {
-    return <div className={styles['admin-card']}>Add Fee (Page)</div>;
-}
-
-function AddWithdrawalPage() {
-    return <div className={styles['admin-card']}>Add Withdrawal (Page)</div>;
-}
-
-function ManageSettingsPage() {
-    return <div className={styles['admin-card']}>Manage Settings (Page)</div>;
 }
