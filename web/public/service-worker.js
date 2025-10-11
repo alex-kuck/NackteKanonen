@@ -1,6 +1,6 @@
 // Custom service worker for immediate activation and cache management
 
-const CACHE_NAME = 'nackte-kanonen-cache-v1';
+const CACHE_NAME = 'nackte-kanonen-cache-v2';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -18,9 +18,9 @@ self.addEventListener('activate', (event) => {
             .keys()
             .then((keys) =>
                 Promise.all(
-                    keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
-                )
-            )
+                    keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)),
+                ),
+            ),
     );
     self.clients.claim(); // Take control of all clients immediately
 });
@@ -29,7 +29,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
             return response || fetch(event.request);
-        })
+        }),
     );
 });
 
