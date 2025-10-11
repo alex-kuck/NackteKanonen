@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router';
 import styles from './app.module.css';
 import { AddDepositPage } from './pages/add-deposit';
 import { AddFeePage } from './pages/add-fee';

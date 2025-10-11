@@ -1,6 +1,6 @@
 // Custom service worker for immediate activation and cache management
 
-const CACHE_NAME = 'nackte-kanonen-cache-v2';
+const CACHE_NAME = 'nackte-kanonen-cache-v3';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
