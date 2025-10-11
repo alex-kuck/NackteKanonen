@@ -19,18 +19,19 @@ export const Overview = () => {
             <OverviewGrid>
                 <div style={{ gridArea: 'info', textAlign: 'center', fontSize: 'x-large' }}>
                     <span>
-                        Kassenstand:{' '}
+                        Kassenstand:&nbsp;
                         <Bold>{formattedCurrency(totalDeposits - totalWithdrawn)}</Bold>
-                        <br /> (letztes erfasstes Kegeln{' '}
+                        <br /> (letztes erfasstes Kegeln:&nbsp;
                         {formattedDate(new Date(lastMeeting?.date ?? 0))})
                         <br />
                     </span>
                     <span>
-                        Ausstehende Zahlungen: <Bold>{formattedCurrency(open * -1)}</Bold>
+                        Ausstehende Zahlungen:&nbsp;
+                        <Bold>{formattedCurrency(Math.max(open * -1, 0))}</Bold>
                     </span>
                 </div>
                 <div style={{ gridArea: 'logo' }}>
-                    <Logo src={'/img/logo.jpg'} alt={'Nackte Kanonen Logo'} />
+                    <Logo src="/img/logo.jpg" alt="Nackte Kanonen Logo" />
                 </div>
             </OverviewGrid>
         </>
