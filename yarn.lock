@@ -6800,6 +6800,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"baseline-browser-mapping@npm:^2.10.10":
+  version: 2.10.10
+  resolution: "baseline-browser-mapping@npm:2.10.10"
+  bin:
+    baseline-browser-mapping: dist/cli.cjs
+  checksum: 10c0/39dee9d955a5e017852f338cb9057feee8d938c82f217d63158f04ccdbbc1c19e80bbed8d15223e3d410ee8b3703829d41fd7eb345e6e44230034ea9adaf8a1d
+  languageName: node
+  linkType: hard
+
 "baseline-browser-mapping@npm:^2.8.9":
   version: 2.8.16
   resolution: "baseline-browser-mapping@npm:2.8.16"
@@ -11639,6 +11648,7 @@ __metadata:
     "@vitest/coverage-v8": "npm:^3.2.4"
     "@vitest/ui": "npm:^3.2.4"
     ajv: "npm:^8.17.1"
+    baseline-browser-mapping: "npm:^2.10.10"
     emotion: "npm:^11.0.0"
     eslint: "npm:^9.37.0"
     eslint-config-prettier: "npm:^10.1.8"

@@ -27,7 +27,8 @@
         "fb:deploy": "yarn build && firebase deploy --only hosting,database",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "test": "nx test web",
-        "dev": "nx serve web"
+        "dev": "nx serve web",
+        "refresh-baseline-browser-mapping": "yarn add -D baseline-browser-mapping@latest"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -63,6 +64,7 @@
         "@vitest/coverage-v8": "^3.2.4",
         "@vitest/ui": "^3.2.4",
         "ajv": "^8.17.1",
+        "baseline-browser-mapping": "^2.10.10",
         "eslint": "^9.37.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-config-react-app": "^7.0.1",
