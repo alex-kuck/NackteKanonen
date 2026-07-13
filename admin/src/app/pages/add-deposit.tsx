@@ -4,9 +4,10 @@ import React from 'react';
 import styles from '../app.module.css';
 import { PaymentForm } from './payment-form';
 import { playersWithIds } from './players-with-ids';
+import { RecentPayments } from './recent-payments';
 
 export function AddDepositPage() {
-    const { players } = useFirebase();
+    const { players, deposits } = useFirebase();
 
     return (
         <div className={styles['admin-main-centered']}>
@@ -15,6 +16,11 @@ export function AddDepositPage() {
                 {!isEmpty(players) && (
                     <PaymentForm players={playersWithIds(players)} onSubmit={addDeposit} />
                 )}
+                <RecentPayments
+                    payments={deposits}
+                    players={players}
+                    title="5 most recent deposits"
+                />
             </div>
         </div>
     );

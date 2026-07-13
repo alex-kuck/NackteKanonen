@@ -192,6 +192,37 @@ body {
     color: #888888;
 }
 
+.recent-payments {
+    margin-top: 2rem;
+}
+
+.recent-payments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+}
+
+.recent-payments-table th,
+.recent-payments-table td {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    vertical-align: top;
+}
+
+.recent-payments-table th {
+    color: var(--accent);
+}
+
+.recent-payments-note {
+    white-space: pre-wrap;
+}
+
+:root[data-theme="dark"] .recent-payments-table th,
+:root[data-theme="dark"] .recent-payments-table td {
+    border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
 :root[data-theme="dark"] .submit-btn {
     color: var(--foreground);
     background: var(--accent);
